@@ -9,5 +9,5 @@ docker run --rm \
     -v "${PWD}:/local" \
     "${OPENAPI_IMAGE}" generate \
     -i "/local/${SCHEMA_FILE}" \
-    -c "/local/config/config-typescript.yml" \
+    -c "/local/config-typescript.yml" \
     -o "/local"

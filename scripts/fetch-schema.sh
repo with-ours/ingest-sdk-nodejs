@@ -3,11 +3,7 @@ set -e
 
 # Define variables
 SCHEMA_URL="https://api.oursprivacy.com/api/v1/openapi"
-SCHEMA_DIR="./schema"
-SCHEMA_FILE="$SCHEMA_DIR/openapi.json"
-
-# Create the schema directory if it doesn't exist
-mkdir -p "$SCHEMA_DIR"
+SCHEMA_FILE="openapi.json"
 
 # Fetch the schema
 echo "Fetching schema from $SCHEMA_URL..."
