@@ -1,4 +1,3 @@
-// src/index.test.ts
 import { describe, it, expect } from 'vitest'
 import { OursPrivacyApi } from './index'
 
