@@ -48,6 +48,6 @@ git push origin "v${NEXT_VERSION}"
 
 # 8. Publish to npm
 echo "Publishing to npm..."
-npm publish --access public
+npm publish
 
 echo "Release v${NEXT_VERSION} published successfully!"
