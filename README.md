@@ -33,4 +33,7 @@ api.identify('userId', { email: 'user@example.com' });
 
 If you are tracking events from the browser, please use our Web SDK. For detailed installation and usage instructions, refer to our installation guide.
 
-Thank you for choosing OursPrivacy!
+## Related Links
+
+- [Nodejs Documentation](https://docs.oursprivacy.com/docs/nodejs#/)
+- [Ours Privacy](https://oursprivacy.com)

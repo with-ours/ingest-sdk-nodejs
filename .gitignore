@@ -5,3 +5,4 @@ dist
 .openapi-generator
 .DS_Store
 openapi.json
+.yarn/install-state.gz
