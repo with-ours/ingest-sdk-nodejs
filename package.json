@@ -1,11 +1,11 @@
 {
-  "name": "@ours/ingest-sdk",
+  "name": "@oursprivacy/ingest-sdk",
   "version": "1.0.0",
-  "description": "Node.js client for @ours/ingest-sdk",
+  "description": "Node.js client for @oursprivacy/ingest-sdk",
   "author": "Ours Privacy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/with-ours/ingest-sdk-nodejs.git"
+    "url": "git+https://github.com/with-ours/ingest-sdk-nodejs.git"
   },
   "license": "MIT",
   "main": "./dist/index.js",

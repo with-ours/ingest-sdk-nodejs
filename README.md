@@ -8,10 +8,10 @@ To install the client, you can use either Yarn or npm:
 
 ```bash
 # Using Yarn
-yarn add @ours/ingest-sdk
+yarn add @oursprivacy/ingest-sdk
 
 # Using npm
-npm install @ours/ingest-sdk
+npm install @oursprivacy/ingest-sdk
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ npm install @ours/ingest-sdk
 Once installed, you can start using the client in your application. For example:
 
 ```javascript
-import { OursPrivacyApi } from '@ours/ingest-sdk';
+import { OursPrivacyApi } from '@oursprivacy/ingest-sdk';
 const api = new OursPrivacyApi();
 
 // Track an event
