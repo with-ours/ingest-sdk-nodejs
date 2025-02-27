@@ -1,7 +1,7 @@
 {
-  "name": "@oursprivacy/ingest-sdk",
+  "name": "ours-ingest-sdk",
   "version": "1.0.0",
-  "description": "Node.js client for @oursprivacy/ingest-sdk",
+  "description": "Node.js client for ours-ingest-sdk",
   "author": "Ours Privacy",
   "repository": {
     "type": "git",
