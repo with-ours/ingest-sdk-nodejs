@@ -1,0 +1,13 @@
+# https://github.com/karlvr/openapi-generator-plus-generators/blob/main/packages/typescript-fetch-client/templates/README.hbs
+packageName: Testing
+npmName: "@ours/ingest-sdk"
+npmVersion: "1.0.0"
+npmRepository: "https://github.com/with-ours/ours-ingest-api-clients"
+
+# Generator type moved from bash script
+generatorName: typescript-fetch
+
+disallowAdditionalPropertiesIfNotPresent: false
+licenseName: MIT
+supportsES6: true
+withSeparateModelsAndApi: true

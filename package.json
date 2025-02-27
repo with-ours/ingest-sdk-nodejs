@@ -1,0 +1,30 @@
+{
+  "name": "@ours/ingest-sdk",
+  "version": "1.0.0",
+  "description": "Node.js client for @ours/ingest-sdk",
+  "author": "Ours Privacy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/with-ours/nodejs-sdk.git"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "prepare": "npm run build",
+    "test": "vitest",
+    "codegen": "bash ./scripts/codegen.sh",
+    "fetch-schema": "bash ./scripts/fetch-schema.sh"
+  },
+  "devDependencies": {
+    "typescript": "^4.0 || ^5.0",
+    "vitest": "^3.0.7"
+  },
+  "publishConfig": {
+    "registry": "https://github.com/with-ours/ours-ingest-api-clients"
+  },
+  "packageManager": "yarn@4.6.0"
+}

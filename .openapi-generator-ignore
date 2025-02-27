@@ -1,0 +1,5 @@
+# OpenAPI Generator Ignore
+README.md
+.npmignore
+.gitignore
+package.json
