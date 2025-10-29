@@ -33,7 +33,17 @@ api.identify('userId', { email: 'user@example.com' });
 
 If you are tracking events from the browser, please use our Web SDK. For detailed installation and usage instructions, refer to our installation guide.
 
+## Contributing
+
+For information on how to contribute to this project, including how to build and publish releases, see [PUBLISHING.md](PUBLISHING.md).
+
+## Support
+
+- **Documentation**: https://docs.oursprivacy.com/docs/nodejs#/
+- **npm Package**: https://www.npmjs.com/package/ours-ingest-sdk
+- **Issues**: https://github.com/with-ours/ingest-sdk-nodejs/issues
+- **Repository**: https://github.com/with-ours/ingest-sdk-nodejs
+
 ## Related Links
 
-- [Nodejs Documentation](https://docs.oursprivacy.com/docs/nodejs#/)
 - [Ours Privacy](https://oursprivacy.com)
