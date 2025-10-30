@@ -2,10 +2,7 @@
 
 import OursPrivacy from 'ours-privacy';
 
-const client = new OursPrivacy({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource visitor', () => {
   // Prism tests are disabled
