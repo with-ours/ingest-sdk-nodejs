@@ -25,9 +25,7 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import OursPrivacy from 'ours-privacy';
 
-const client = new OursPrivacy({
-  apiKey: process.env['OURS_PRIVACY_API_KEY'], // This is the default and can be omitted
-});
+const client = new OursPrivacy();
 
 const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' });
 
@@ -42,9 +40,7 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import OursPrivacy from 'ours-privacy';
 
-const client = new OursPrivacy({
-  apiKey: process.env['OURS_PRIVACY_API_KEY'], // This is the default and can be omitted
-});
+const client = new OursPrivacy();
 
 const params: OursPrivacy.TrackEventParams = { token: 'REPLACE_ME', event: 'REPLACE_ME' };
 const response: OursPrivacy.TrackEventResponse = await client.track.event(params);
