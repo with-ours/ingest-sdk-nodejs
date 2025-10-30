@@ -2,7 +2,7 @@
   "name": "ours-privacy",
   "version": "0.0.1",
   "description": "The official TypeScript library for the Ours Privacy API",
-  "author": "Ours Privacy <>",
+  "author": "Ours Privacy <support@oursprivacy.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

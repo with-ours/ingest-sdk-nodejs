@@ -4,7 +4,7 @@
 
 This library provides convenient access to the Ours Privacy REST API from server-side TypeScript or JavaScript.
 
-The full API of this library can be found in [api.md](api.md).
+The REST API documentation can be found on [docs.oursprivacy.com](https://docs.oursprivacy.com). The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -29,7 +29,7 @@ const client = new OursPrivacy({
   apiKey: process.env['OURS_PRIVACY_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.track.createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' });
+const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' });
 
 console.log(response.success);
 ```
@@ -46,8 +46,8 @@ const client = new OursPrivacy({
   apiKey: process.env['OURS_PRIVACY_API_KEY'], // This is the default and can be omitted
 });
 
-const params: OursPrivacy.TrackCreateEventParams = { token: 'REPLACE_ME', event: 'REPLACE_ME' };
-const response: OursPrivacy.TrackCreateEventResponse = await client.track.createEvent(params);
+const params: OursPrivacy.TrackEventParams = { token: 'REPLACE_ME', event: 'REPLACE_ME' };
+const response: OursPrivacy.TrackEventResponse = await client.track.event(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -60,17 +60,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.track
-  .createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
-  .catch(async (err) => {
-    if (err instanceof OursPrivacy.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }).catch(async (err) => {
+  if (err instanceof OursPrivacy.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -102,7 +100,7 @@ const client = new OursPrivacy({
 });
 
 // Or, configure per-request:
-await client.track.createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' }, {
+await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -119,7 +117,7 @@ const client = new OursPrivacy({
 });
 
 // Override per-request:
-await client.track.createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' }, {
+await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -142,12 +140,12 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new OursPrivacy();
 
-const response = await client.track.createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' }).asResponse();
+const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client.track
-  .createEvent({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
+  .event({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.success);
@@ -230,7 +228,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.track.createEvent({
+client.track.event({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',

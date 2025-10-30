@@ -4,16 +4,13 @@ import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
 
-export class Identify extends APIResource {
+export class Visitor extends APIResource {
   /**
    * Define visitor properties on an existing visitor or create a new visitor. Note:
    * This does not fire an event. If you want to fire an event, use the track method
    * and include properties for the visitor.
    */
-  createOrUpdate(
-    body: IdentifyCreateOrUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<IdentifyCreateOrUpdateResponse> {
+  upsert(body: VisitorUpsertParams, options?: RequestOptions): APIPromise<VisitorUpsertResponse> {
     return this._client.post('/identify', {
       body,
       defaultBaseURL: 'https://api.oursprivacy.com/api/v1',
@@ -22,11 +19,11 @@ export class Identify extends APIResource {
   }
 }
 
-export interface IdentifyCreateOrUpdateResponse {
+export interface VisitorUpsertResponse {
   success: true;
 }
 
-export interface IdentifyCreateOrUpdateParams {
+export interface VisitorUpsertParams {
   /**
    * The token for your Ours Privacy Source. You can find this in the Ours dashboard.
    */
@@ -37,13 +34,13 @@ export interface IdentifyCreateOrUpdateParams {
    * be updated. And all future events will have these properties associated with
    * them.
    */
-  userProperties: IdentifyCreateOrUpdateParams.UserProperties;
+  userProperties: VisitorUpsertParams.UserProperties;
 
   /**
    * These properties are used throughout the Ours app to pass known values onto
    * destinations
    */
-  defaultProperties?: IdentifyCreateOrUpdateParams.DefaultProperties | null;
+  defaultProperties?: VisitorUpsertParams.DefaultProperties | null;
 
   /**
    * The email address of a user. We will associate this event with the user or
@@ -67,7 +64,7 @@ export interface IdentifyCreateOrUpdateParams {
   userId?: string | null;
 }
 
-export namespace IdentifyCreateOrUpdateParams {
+export namespace VisitorUpsertParams {
   /**
    * User properties to associate with this user. The existing user properties will
    * be updated. And all future events will have these properties associated with
@@ -510,9 +507,9 @@ export namespace IdentifyCreateOrUpdateParams {
   }
 }
 
-export declare namespace Identify {
+export declare namespace Visitor {
   export {
-    type IdentifyCreateOrUpdateResponse as IdentifyCreateOrUpdateResponse,
-    type IdentifyCreateOrUpdateParams as IdentifyCreateOrUpdateParams,
+    type VisitorUpsertResponse as VisitorUpsertResponse,
+    type VisitorUpsertParams as VisitorUpsertParams,
   };
 }

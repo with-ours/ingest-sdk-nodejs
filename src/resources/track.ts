@@ -11,7 +11,7 @@ export class Track extends APIResource {
    * users. For all fields, null values unset the property and undefined values do
    * not unset existing properties.
    */
-  createEvent(body: TrackCreateEventParams, options?: RequestOptions): APIPromise<TrackCreateEventResponse> {
+  event(body: TrackEventParams, options?: RequestOptions): APIPromise<TrackEventResponse> {
     return this._client.post('/track', {
       body,
       defaultBaseURL: 'https://api.oursprivacy.com/api/v1',
@@ -20,11 +20,11 @@ export class Track extends APIResource {
   }
 }
 
-export interface TrackCreateEventResponse {
+export interface TrackEventResponse {
   success: true;
 }
 
-export interface TrackCreateEventParams {
+export interface TrackEventParams {
   /**
    * The token for your Ours Privacy Source. You can find this in the Ours dashboard.
    */
@@ -40,7 +40,7 @@ export interface TrackCreateEventParams {
    * These properties are used throughout the Ours app to pass known values onto
    * destinations
    */
-  defaultProperties?: TrackCreateEventParams.DefaultProperties | null;
+  defaultProperties?: TrackEventParams.DefaultProperties | null;
 
   /**
    * A unique identifier for the event. This helps prevent duplicate events.
@@ -83,10 +83,10 @@ export interface TrackCreateEventParams {
    * Properties to set on the visitor. (optional) You can also update these
    * properties via the identify endpoint.
    */
-  userProperties?: TrackCreateEventParams.UserProperties | null;
+  userProperties?: TrackEventParams.UserProperties | null;
 }
 
-export namespace TrackCreateEventParams {
+export namespace TrackEventParams {
   /**
    * These properties are used throughout the Ours app to pass known values onto
    * destinations
@@ -529,8 +529,5 @@ export namespace TrackCreateEventParams {
 }
 
 export declare namespace Track {
-  export {
-    type TrackCreateEventResponse as TrackCreateEventResponse,
-    type TrackCreateEventParams as TrackCreateEventParams,
-  };
+  export { type TrackEventResponse as TrackEventResponse, type TrackEventParams as TrackEventParams };
 }

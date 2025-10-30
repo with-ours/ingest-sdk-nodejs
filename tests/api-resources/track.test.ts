@@ -9,8 +9,8 @@ const client = new OursPrivacy({
 
 describe('resource track', () => {
   // Prism tests are disabled
-  test.skip('createEvent: only required params', async () => {
-    const responsePromise = client.track.createEvent({ token: 'x', event: 'x' });
+  test.skip('event: only required params', async () => {
+    const responsePromise = client.track.event({ token: 'x', event: 'x' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,8 +21,8 @@ describe('resource track', () => {
   });
 
   // Prism tests are disabled
-  test.skip('createEvent: required and optional params', async () => {
-    const response = await client.track.createEvent({
+  test.skip('event: required and optional params', async () => {
+    const response = await client.track.event({
       token: 'x',
       event: 'x',
       defaultProperties: {
