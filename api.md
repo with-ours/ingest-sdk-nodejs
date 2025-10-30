@@ -2,18 +2,18 @@
 
 Types:
 
-- <code><a href="./src/resources/track.ts">TrackCreateEventResponse</a></code>
+- <code><a href="./src/resources/track.ts">TrackEventResponse</a></code>
 
 Methods:
 
-- <code title="post /track">client.track.<a href="./src/resources/track.ts">createEvent</a>({ ...params }) -> TrackCreateEventResponse</code>
+- <code title="post /track">client.track.<a href="./src/resources/track.ts">event</a>({ ...params }) -> TrackEventResponse</code>
 
-# Identify
+# Visitor
 
 Types:
 
-- <code><a href="./src/resources/identify.ts">IdentifyCreateOrUpdateResponse</a></code>
+- <code><a href="./src/resources/visitor.ts">VisitorUpsertResponse</a></code>
 
 Methods:
 
-- <code title="post /identify">client.identify.<a href="./src/resources/identify.ts">createOrUpdate</a>({ ...params }) -> IdentifyCreateOrUpdateResponse</code>
+- <code title="post /identify">client.visitor.<a href="./src/resources/visitor.ts">upsert</a>({ ...params }) -> VisitorUpsertResponse</code>

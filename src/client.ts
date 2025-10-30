@@ -16,8 +16,8 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { Identify, IdentifyCreateOrUpdateParams, IdentifyCreateOrUpdateResponse } from './resources/identify';
-import { Track, TrackCreateEventParams, TrackCreateEventResponse } from './resources/track';
+import { Track, TrackEventParams, TrackEventResponse } from './resources/track';
+import { Visitor, VisitorUpsertParams, VisitorUpsertResponse } from './resources/visitor';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -722,24 +722,24 @@ export class OursPrivacy {
   static toFile = Uploads.toFile;
 
   track: API.Track = new API.Track(this);
-  identify: API.Identify = new API.Identify(this);
+  visitor: API.Visitor = new API.Visitor(this);
 }
 
 OursPrivacy.Track = Track;
-OursPrivacy.Identify = Identify;
+OursPrivacy.Visitor = Visitor;
 
 export declare namespace OursPrivacy {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
     Track as Track,
-    type TrackCreateEventResponse as TrackCreateEventResponse,
-    type TrackCreateEventParams as TrackCreateEventParams,
+    type TrackEventResponse as TrackEventResponse,
+    type TrackEventParams as TrackEventParams,
   };
 
   export {
-    Identify as Identify,
-    type IdentifyCreateOrUpdateResponse as IdentifyCreateOrUpdateResponse,
-    type IdentifyCreateOrUpdateParams as IdentifyCreateOrUpdateParams,
+    Visitor as Visitor,
+    type VisitorUpsertResponse as VisitorUpsertResponse,
+    type VisitorUpsertParams as VisitorUpsertParams,
   };
 }

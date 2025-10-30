@@ -7,10 +7,10 @@ const client = new OursPrivacy({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource identify', () => {
+describe('resource visitor', () => {
   // Prism tests are disabled
-  test.skip('createOrUpdate: only required params', async () => {
-    const responsePromise = client.identify.createOrUpdate({ token: 'x', userProperties: {} });
+  test.skip('upsert: only required params', async () => {
+    const responsePromise = client.visitor.upsert({ token: 'x', userProperties: {} });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,8 +21,8 @@ describe('resource identify', () => {
   });
 
   // Prism tests are disabled
-  test.skip('createOrUpdate: required and optional params', async () => {
-    const response = await client.identify.createOrUpdate({
+  test.skip('upsert: required and optional params', async () => {
+    const response = await client.visitor.upsert({
       token: 'x',
       userProperties: {
         ad_id: 'ad_id',
