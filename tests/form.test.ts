@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'ours-privacy/internal/uploads';
-import { toFile } from 'ours-privacy/core/uploads';
+import { multipartFormRequestOptions, createForm } from '@oursprivacy/server-sdk/internal/uploads';
+import { toFile } from '@oursprivacy/server-sdk/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

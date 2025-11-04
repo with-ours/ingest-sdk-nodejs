@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "ours-privacy/*": ["./src/*"],
-      "ours-privacy": ["./src/index.ts"]
+      "@oursprivacy/server-sdk/*": ["./src/*"],
+      "@oursprivacy/server-sdk": ["./src/index.ts"]
     },
     "noEmit": true,
 

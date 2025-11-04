@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'ours-privacy/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from '@oursprivacy/server-sdk/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 
