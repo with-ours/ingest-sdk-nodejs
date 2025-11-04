@@ -1,5 +1,5 @@
 {
-  "name": "ours-privacy",
+  "name": "@oursprivacy/server-sdk",
   "version": "0.0.1",
   "description": "The official TypeScript library for the Ours Privacy API",
   "author": "Ours Privacy <support@oursprivacy.com>",
