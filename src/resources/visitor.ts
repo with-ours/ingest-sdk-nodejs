@@ -144,6 +144,8 @@ export namespace VisitorUpsertParams {
 
     referrer?: string | null;
 
+    referring_domain?: string | null;
+
     sacid?: string | null;
 
     sccid?: string | null;
@@ -407,6 +409,11 @@ export namespace VisitorUpsertParams {
      * The referrer URL of the current page
      */
     referrer?: string | null;
+
+    /**
+     * The referring domain of the current page
+     */
+    referring_domain?: string | null;
 
     /**
      * The StackAdapt Tracking ID. Ex: sacid123
