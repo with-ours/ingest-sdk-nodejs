@@ -319,6 +319,11 @@ export namespace TrackEventParams {
     referrer?: string | null;
 
     /**
+     * The referring domain of the current page
+     */
+    referring_domain?: string | null;
+
+    /**
      * The StackAdapt Tracking ID. Ex: sacid123
      */
     sacid?: string | null;
@@ -500,6 +505,8 @@ export namespace TrackEventParams {
     rdt_cid?: string | null;
 
     referrer?: string | null;
+
+    referring_domain?: string | null;
 
     sacid?: string | null;
 
