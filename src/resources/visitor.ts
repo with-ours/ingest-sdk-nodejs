@@ -122,6 +122,8 @@ export namespace VisitorUpsertParams {
      */
     ip?: string | null;
 
+    irclickid?: string | null;
+
     is_bot?: unknown;
 
     job_title?: string | null;
@@ -334,6 +336,11 @@ export namespace VisitorUpsertParams {
      * The IP address of the user. Ex: 127.0.0.1
      */
     ip?: string | null;
+
+    /**
+     * The Impact Click ID. Ex: irclickid123
+     */
+    irclickid?: string | null;
 
     /**
      * Whether we have detected that the user is a bot. This is set automatically by

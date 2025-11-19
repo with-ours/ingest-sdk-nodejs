@@ -248,6 +248,11 @@ export namespace TrackEventParams {
     ip?: string | null;
 
     /**
+     * The Impact Click ID. Ex: irclickid123
+     */
+    irclickid?: string | null;
+
+    /**
      * Whether we have detected that the user is a bot. This is set automatically by
      * the Ours server primarily for events tracked through the web SDK.
      */
@@ -473,6 +478,8 @@ export namespace TrackEventParams {
      * The IP address of the user
      */
     ip?: string | null;
+
+    irclickid?: string | null;
 
     is_bot?: unknown;
 
