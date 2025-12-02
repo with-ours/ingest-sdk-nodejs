@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2025-12-02)
+
+Full Changelog: [v0.3.0...v0.3.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.3.0...v0.3.1)
+
+### Chores
+
+* **client:** fix logger property type ([54731c8](https://github.com/with-ours/ingest-sdk-nodejs/commit/54731c8971b8efd33c76bf7a2e50dc6f8efd582b))
+
 ## 0.3.0 (2025-11-19)
 
 Full Changelog: [v0.2.0...v0.3.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.2.0...v0.3.0)
