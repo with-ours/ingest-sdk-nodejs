@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 (2025-12-03)
+
+Full Changelog: [v0.3.1...v0.3.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.3.1...v0.3.2)
+
+### Chores
+
+* **internal:** upgrade eslint ([821e2f2](https://github.com/with-ours/ingest-sdk-nodejs/commit/821e2f2a8080ad86946c23cb67a92f980862228c))
+
 ## 0.3.1 (2025-12-02)
 
 Full Changelog: [v0.3.0...v0.3.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.3.0...v0.3.1)
