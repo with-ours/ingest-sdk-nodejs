@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.3 (2025-12-09)
+
+Full Changelog: [v0.3.2...v0.3.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.3.2...v0.3.3)
+
+### Chores
+
+* **internal:** escape package name in pnpm workspace file ([55a30fb](https://github.com/with-ours/ingest-sdk-nodejs/commit/55a30fb9029267f40d8bdcb1856ffd83bd5447eb))
+
 ## 0.3.2 (2025-12-03)
 
 Full Changelog: [v0.3.1...v0.3.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.3.1...v0.3.2)
