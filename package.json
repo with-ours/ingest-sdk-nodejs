@@ -1,6 +1,6 @@
 {
   "name": "@oursprivacy/server-sdk",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "The official TypeScript library for the Ours Privacy API",
   "author": "Ours Privacy <support@oursprivacy.com>",
   "types": "dist/index.d.ts",
