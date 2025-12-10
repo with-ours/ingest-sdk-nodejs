@@ -117,6 +117,8 @@ export namespace VisitorUpsertParams {
 
     gender?: string | null;
 
+    im_ref?: string | null;
+
     /**
      * The IP address of the user
      */
@@ -333,6 +335,11 @@ export namespace VisitorUpsertParams {
      * Whether the user is in an iframe. Ex: true
      */
     iframe?: boolean | null;
+
+    /**
+     * The Impact Click ID reference. Ex: im_ref123
+     */
+    im_ref?: string | null;
 
     /**
      * The IP address of the user. Ex: 127.0.0.1
