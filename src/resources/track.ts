@@ -243,6 +243,11 @@ export namespace TrackEventParams {
     iframe?: boolean | null;
 
     /**
+     * The Impact Click ID reference. Ex: im_ref123
+     */
+    im_ref?: string | null;
+
+    /**
      * The IP address of the user. Ex: 127.0.0.1
      */
     ip?: string | null;
@@ -478,6 +483,8 @@ export namespace TrackEventParams {
     gclid?: string | null;
 
     gender?: string | null;
+
+    im_ref?: string | null;
 
     /**
      * The IP address of the user
