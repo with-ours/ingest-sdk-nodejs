@@ -24,6 +24,7 @@ describe('resource visitor', () => {
       userProperties: {
         ad_id: 'ad_id',
         adset_id: 'adset_id',
+        basis_cid: 'basis_cid',
         campaign_id: 'campaign_id',
         city: 'city',
         clickid: 'clickid',
@@ -80,6 +81,7 @@ describe('resource visitor', () => {
         activeDuration: 0,
         ad_id: 'ad_id',
         adset_id: 'adset_id',
+        basis_cid: 'basis_cid',
         browser_language: 'browser_language',
         browser_name: 'browser_name',
         browser_version: 'browser_version',
