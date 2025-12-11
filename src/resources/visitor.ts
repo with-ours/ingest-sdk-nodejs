@@ -75,6 +75,8 @@ export namespace VisitorUpsertParams {
 
     adset_id?: string | null;
 
+    basis_cid?: string | null;
+
     campaign_id?: string | null;
 
     city?: string | null;
@@ -201,6 +203,11 @@ export namespace VisitorUpsertParams {
      * automatically.
      */
     adset_id?: string | null;
+
+    /**
+     * The Basis DSP Click ID. Ex: basis_cid123
+     */
+    basis_cid?: string | null;
 
     /**
      * The language of the browser. Ex: en-US
