@@ -109,6 +109,11 @@ export namespace TrackEventParams {
     adset_id?: string | null;
 
     /**
+     * The Basis DSP Click ID. Ex: basis_cid123
+     */
+    basis_cid?: string | null;
+
+    /**
      * The language of the browser. Ex: en-US
      */
     browser_language?: string | null;
@@ -441,6 +446,8 @@ export namespace TrackEventParams {
     ad_id?: string | null;
 
     adset_id?: string | null;
+
+    basis_cid?: string | null;
 
     campaign_id?: string | null;
 
