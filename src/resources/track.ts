@@ -57,7 +57,7 @@ export interface TrackEventParams {
   /**
    * Any additional event properties you want to pass along.
    */
-  eventProperties?: { [key: string]: unknown } | null;
+  eventProperties?: { [key: string]: string | null } | null;
 
   /**
    * The externalId (the ID in your system) of a user. We will associate this event
@@ -266,7 +266,7 @@ export namespace TrackEventParams {
      * Whether we have detected that the user is a bot. This is set automatically by
      * the Ours server primarily for events tracked through the web SDK.
      */
-    is_bot?: unknown;
+    is_bot?: string | null;
 
     /**
      * The LinkedIn Click ID. Ex: li_fat_id123
@@ -459,11 +459,11 @@ export namespace TrackEventParams {
 
     company_name?: string | null;
 
-    consent?: { [key: string]: unknown } | null;
+    consent?: { [key: string]: string | null } | null;
 
     country?: string | null;
 
-    custom_properties?: { [key: string]: unknown } | null;
+    custom_properties?: { [key: string]: string | null } | null;
 
     date_of_birth?: string | null;
 
@@ -500,7 +500,7 @@ export namespace TrackEventParams {
 
     irclickid?: string | null;
 
-    is_bot?: unknown;
+    is_bot?: string | null;
 
     job_title?: string | null;
 
@@ -512,7 +512,7 @@ export namespace TrackEventParams {
 
     ndclid?: string | null;
 
-    phone_number?: unknown;
+    phone_number?: string | null;
 
     qclid?: string | null;
 
@@ -552,7 +552,7 @@ export namespace TrackEventParams {
 
     wbraid?: string | null;
 
-    zip?: unknown;
+    zip?: string | null;
   }
 }
 
