@@ -75,6 +75,10 @@ export namespace VisitorUpsertParams {
 
     adset_id?: string | null;
 
+    alart?: string | null;
+
+    aleid?: string | null;
+
     basis_cid?: string | null;
 
     campaign_id?: string | null;
@@ -203,6 +207,16 @@ export namespace VisitorUpsertParams {
      * automatically.
      */
     adset_id?: string | null;
+
+    /**
+     * The AppLovin alart query parameter. Ex: alart123
+     */
+    alart?: string | null;
+
+    /**
+     * The AppLovin aleid query parameter. Ex: aleid123
+     */
+    aleid?: string | null;
 
     /**
      * The Basis DSP Click ID. Ex: basis_cid123
