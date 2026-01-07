@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.2 (2026-01-07)
+
+Full Changelog: [v0.7.1...v0.7.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.1...v0.7.2)
+
+### Chores
+
+* break long lines in snippets into multiline ([ef4799c](https://github.com/with-ours/ingest-sdk-nodejs/commit/ef4799ce7a2315b1c097d3362e2d77c461bfcae8))
+
 ## 0.7.1 (2026-01-06)
 
 Full Changelog: [v0.7.0...v0.7.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.0...v0.7.1)
