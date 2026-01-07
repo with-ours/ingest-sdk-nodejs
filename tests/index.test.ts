@@ -196,7 +196,10 @@ describe('instantiate client', () => {
     });
 
     test('overriding with `undefined`', () => {
-      const client = new OursPrivacy({ baseURL: 'http://localhost:5000/', defaultQuery: { hello: 'world' } });
+      const client = new OursPrivacy({
+        baseURL: 'http://localhost:5000/',
+        defaultQuery: { hello: 'world' },
+      });
       expect(client.buildURL('/foo', { hello: undefined })).toEqual('http://localhost:5000/foo');
     });
   });
