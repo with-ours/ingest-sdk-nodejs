@@ -53,15 +53,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }).catch(async (err) => {
-  if (err instanceof OursPrivacy.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const response = await client.track
+  .event({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
+  .catch(async (err) => {
+    if (err instanceof OursPrivacy.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -133,7 +135,9 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new OursPrivacy();
 
-const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' }).asResponse();
+const response = await client.track
+  .event({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
