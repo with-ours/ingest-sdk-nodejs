@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.7.3 (2026-01-17)
+
+Full Changelog: [v0.7.2...v0.7.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.2...v0.7.3)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([72d3f1b](https://github.com/with-ours/ingest-sdk-nodejs/commit/72d3f1b9ec93ff125cabc317279e1449bb216df9))
+* **internal:** update lock file ([4173543](https://github.com/with-ours/ingest-sdk-nodejs/commit/417354394dd47f83c4c12be39ec0ba9cd771679f))
+* **internal:** upgrade babel, qs, js-yaml ([25e6c3e](https://github.com/with-ours/ingest-sdk-nodejs/commit/25e6c3e8b7764eabbfc24ab38986c459ec565f29))
+* **internal:** upgrade brace-expansion and @babel/helpers ([eef72e4](https://github.com/with-ours/ingest-sdk-nodejs/commit/eef72e4d185dc565fe99cce2b8c8c465dc6dbc95))
+
 ## 0.7.2 (2026-01-07)
 
 Full Changelog: [v0.7.1...v0.7.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.1...v0.7.2)
