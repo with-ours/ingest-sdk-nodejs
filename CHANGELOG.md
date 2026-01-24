@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.4 (2026-01-24)
+
+Full Changelog: [v0.7.3...v0.7.4](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.3...v0.7.4)
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([12c1cf7](https://github.com/with-ours/ingest-sdk-nodejs/commit/12c1cf7fad9e3397e94e5663d52f429328920ebc))
+
 ## 0.7.3 (2026-01-17)
 
 Full Changelog: [v0.7.2...v0.7.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.2...v0.7.3)
