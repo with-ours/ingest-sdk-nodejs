@@ -25,7 +25,7 @@ export interface VisitorUpsertResponse {
 
 export interface VisitorUpsertParams {
   /**
-   * The token for your Ours Privacy Source. You can find this in the Ours dashboard.
+   * The token for your Source. You can find this in the dashboard.
    */
   token: string;
 
