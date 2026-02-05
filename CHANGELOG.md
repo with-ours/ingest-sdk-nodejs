@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.8.0 (2026-02-05)
+
+Full Changelog: [v0.7.4...v0.8.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.4...v0.8.0)
+
+### Features
+
+* **api:** api update ([3296c8a](https://github.com/with-ours/ingest-sdk-nodejs/commit/3296c8aadf7150b7b93eaa284dec00654c21fd09))
+
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([e0969e8](https://github.com/with-ours/ingest-sdk-nodejs/commit/e0969e8645bcd6ad82de0fea02979ca647b3c52f))
+
+
+### Chores
+
+* **client:** do not parse responses with empty content-length ([7ae12c2](https://github.com/with-ours/ingest-sdk-nodejs/commit/7ae12c222f7e6a9df2542a3daad1bf6aa5c35ebc))
+* **client:** restructure abort controller binding ([90da870](https://github.com/with-ours/ingest-sdk-nodejs/commit/90da87057691a5d04db3ec5e4d9a77c71ece8afe))
+
 ## 0.7.4 (2026-01-24)
 
 Full Changelog: [v0.7.3...v0.7.4](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.3...v0.7.4)
