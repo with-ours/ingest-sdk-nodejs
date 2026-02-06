@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.8.1 (2026-02-06)
+
+Full Changelog: [v0.8.0...v0.8.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.0...v0.8.1)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([d6380e8](https://github.com/with-ours/ingest-sdk-nodejs/commit/d6380e8c65e88b36c06677b7ed0bc904f4346b46))
+
+
+### Chores
+
+* **internal:** upgrade pnpm ([5980aea](https://github.com/with-ours/ingest-sdk-nodejs/commit/5980aea663059f9b3cfc7050c5e27a0c976cfed9))
+
 ## 0.8.0 (2026-02-05)
 
 Full Changelog: [v0.7.4...v0.8.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.7.4...v0.8.0)
