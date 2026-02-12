@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.8.2 (2026-02-12)
+
+Full Changelog: [v0.8.1...v0.8.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.1...v0.8.2)
+
+### Chores
+
+* **internal:** avoid type checking errors with ts-reset ([5167347](https://github.com/with-ours/ingest-sdk-nodejs/commit/516734739e2cf6151e763426f2111836a8333823))
+
 ## 0.8.1 (2026-02-06)
 
 Full Changelog: [v0.8.0...v0.8.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.0...v0.8.1)
