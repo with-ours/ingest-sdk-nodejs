@@ -5,7 +5,7 @@ import OursPrivacy from '@oursprivacy/server-sdk';
 const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource visitor', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('upsert: only required params', async () => {
     const responsePromise = client.visitor.upsert({
       token: 'x',
@@ -20,7 +20,7 @@ describe('resource visitor', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('upsert: required and optional params', async () => {
     const response = await client.visitor.upsert({
       token: 'x',
