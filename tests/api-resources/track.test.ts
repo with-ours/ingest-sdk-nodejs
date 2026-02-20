@@ -5,7 +5,7 @@ import OursPrivacy from '@oursprivacy/server-sdk';
 const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource track', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('event: only required params', async () => {
     const responsePromise = client.track.event({ token: 'x', event: 'x' });
     const rawResponse = await responsePromise.asResponse();
@@ -17,7 +17,7 @@ describe('resource track', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('event: required and optional params', async () => {
     const response = await client.track.event({
       token: 'x',
