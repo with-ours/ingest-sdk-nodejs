@@ -60,7 +60,7 @@ $ yarn link @oursprivacy/server-sdk
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global @oursprivacy/server-sdk
+$ pnpm link --global @oursprivacy/server-sdk
 ```
 
 ## Running tests
