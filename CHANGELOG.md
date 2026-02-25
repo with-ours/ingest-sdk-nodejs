@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.0.0 (2026-02-25)
+
+Full Changelog: [v0.8.2...v1.0.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.2...v1.0.0)
+
+### Features
+
+* **api:** api update ([3c38f08](https://github.com/with-ours/ingest-sdk-nodejs/commit/3c38f085576d9abf1873320fb97ada36e925c936))
+
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([d770e81](https://github.com/with-ours/ingest-sdk-nodejs/commit/d770e81a4df2a807cb08ab70a84972c1260040d9))
+
+
+### Chores
+
+* **internal/client:** fix form-urlencoded requests ([e8cb447](https://github.com/with-ours/ingest-sdk-nodejs/commit/e8cb44771071dec1d12e99b9863caa0a50761df3))
+* **internal:** remove mock server code ([431f74b](https://github.com/with-ours/ingest-sdk-nodejs/commit/431f74beb5b5129d68fd6790362b87218bb58620))
+* **internal:** upgrade pnpm version ([626b15b](https://github.com/with-ours/ingest-sdk-nodejs/commit/626b15baf57c1b4114ceda2f307c1e96338f546e))
+* update mock server docs ([858ff1c](https://github.com/with-ours/ingest-sdk-nodejs/commit/858ff1cee7d3ef4cb8835493963b97e76d2b0c72))
+
 ## 0.8.2 (2026-02-12)
 
 Full Changelog: [v0.8.1...v0.8.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.1...v0.8.2)
