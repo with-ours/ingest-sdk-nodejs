@@ -6,9 +6,8 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Visitor extends APIResource {
   /**
-   * Define visitor properties on an existing visitor or create a new visitor. Note:
-   * This does not fire an event. If you want to fire an event, use the track method
-   * and include properties for the visitor.
+   * Define visitor properties on an existing visitor or create a new visitor. This
+   * fires a $identify event, making the call visible in the event stream.
    */
   upsert(body: VisitorUpsertParams, options?: RequestOptions): APIPromise<VisitorUpsertResponse> {
     return this._client.post('/identify', {
