@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1 (2026-02-27)
+
+Full Changelog: [v1.0.0...v1.0.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.0.0...v1.0.1)
+
+### Chores
+
+* **internal:** move stringifyQuery implementation to internal function ([7c0fc05](https://github.com/with-ours/ingest-sdk-nodejs/commit/7c0fc0592310620c8ab5f1009cb59179a8c67a9c))
+
 ## 1.0.0 (2026-02-25)
 
 Full Changelog: [v0.8.2...v1.0.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v0.8.2...v1.0.0)
