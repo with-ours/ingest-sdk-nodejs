@@ -98,6 +98,7 @@ describe('resource track', () => {
       email: 'x',
       eventProperties: { foo: 'string' },
       externalId: 'x',
+      identityContext: { ip: 'ip', userAgent: 'userAgent' },
       time: 0,
       userId: 'x',
       userProperties: {

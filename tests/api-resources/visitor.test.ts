@@ -156,6 +156,7 @@ describe('resource visitor', () => {
       },
       email: 'x',
       externalId: 'x',
+      identityContext: { ip: 'ip', userAgent: 'userAgent' },
       userId: 'x',
     });
   });
