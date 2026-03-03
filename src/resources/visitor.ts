@@ -56,6 +56,13 @@ export interface VisitorUpsertParams {
   externalId?: string | null;
 
   /**
+   * End-user network context for server-side calls. Required for probabilistic
+   * identity resolution when the caller is a backend server rather than an end-user
+   * browser.
+   */
+  identityContext?: VisitorUpsertParams.IdentityContext | null;
+
+  /**
    * The Ours user id stored in local storage and cookies on your web properties. If
    * userId is included in the request, we do not lookup the user by email or
    * externalId.
@@ -545,6 +552,23 @@ export namespace VisitorUpsertParams {
      * Whether the user is in a webview. Ex: true
      */
     webview?: boolean | null;
+  }
+
+  /**
+   * End-user network context for server-side calls. Required for probabilistic
+   * identity resolution when the caller is a backend server rather than an end-user
+   * browser.
+   */
+  export interface IdentityContext {
+    /**
+     * The end-user IP address (not the server IP).
+     */
+    ip: string;
+
+    /**
+     * The end-user User-Agent string (not the server UA).
+     */
+    userAgent: string;
   }
 }
 

@@ -67,6 +67,13 @@ export interface TrackEventParams {
   externalId?: string | null;
 
   /**
+   * End-user network context for server-side calls. Required for probabilistic
+   * identity resolution when the caller is a backend server rather than an end-user
+   * browser.
+   */
+  identityContext?: TrackEventParams.IdentityContext | null;
+
+  /**
    * The time at which the event occurred in milliseconds since UTC epoch. The time
    * must be in the past and within the last 7 days.
    */
@@ -446,6 +453,23 @@ export namespace TrackEventParams {
      * Whether the user is in a webview. Ex: true
      */
     webview?: boolean | null;
+  }
+
+  /**
+   * End-user network context for server-side calls. Required for probabilistic
+   * identity resolution when the caller is a backend server rather than an end-user
+   * browser.
+   */
+  export interface IdentityContext {
+    /**
+     * The end-user IP address (not the server IP).
+     */
+    ip: string;
+
+    /**
+     * The end-user User-Agent string (not the server UA).
+     */
+    userAgent: string;
   }
 
   /**
