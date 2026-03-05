@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0 (2026-03-05)
+
+Full Changelog: [v1.0.1...v1.1.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.0.1...v1.1.0)
+
+### Features
+
+* **api:** api update ([0e57159](https://github.com/with-ours/ingest-sdk-nodejs/commit/0e571597569f7dbb26f5a5cc4980493cec540090))
+
+
+### Bug Fixes
+
+* fix request delays for retrying to be more respectful of high requested delays ([7c6b1aa](https://github.com/with-ours/ingest-sdk-nodejs/commit/7c6b1aac92a86ef38959e325c6c34bc18dc41967))
+
 ## 1.0.1 (2026-02-27)
 
 Full Changelog: [v1.0.0...v1.0.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.0.0...v1.0.1)
