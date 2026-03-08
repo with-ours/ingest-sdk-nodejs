@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.1 (2026-03-08)
+
+Full Changelog: [v1.1.0...v1.1.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.0...v1.1.1)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([8db285e](https://github.com/with-ours/ingest-sdk-nodejs/commit/8db285e3cf4b1e8fe685b49a98ec77a5396e7a7c))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([1c7c910](https://github.com/with-ours/ingest-sdk-nodejs/commit/1c7c9102c17208b0f6a184caf91b28ded33ffca7))
+
 ## 1.1.0 (2026-03-05)
 
 Full Changelog: [v1.0.1...v1.1.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.0.1...v1.1.0)
