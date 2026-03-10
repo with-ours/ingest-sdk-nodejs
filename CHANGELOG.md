@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2 (2026-03-10)
+
+Full Changelog: [v1.1.1...v1.1.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.1...v1.1.2)
+
+### Chores
+
+* **internal:** update dependencies to address dependabot vulnerabilities ([b068173](https://github.com/with-ours/ingest-sdk-nodejs/commit/b0681737a32cb2b6076a260ab80bbb381a12c21c))
+
 ## 1.1.1 (2026-03-08)
 
 Full Changelog: [v1.1.0...v1.1.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.0...v1.1.1)
