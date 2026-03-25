@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.4 (2026-03-25)
+
+Full Changelog: [v1.1.3...v1.1.4](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.3...v1.1.4)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([aa8c83a](https://github.com/with-ours/ingest-sdk-nodejs/commit/aa8c83a1a09e65876a8c1132b0b6ab292f50f989))
+* **internal:** update gitignore ([20cd030](https://github.com/with-ours/ingest-sdk-nodejs/commit/20cd030c71b225bfd15da69322db8643d29e5f7d))
+
 ## 1.1.3 (2026-03-17)
 
 Full Changelog: [v1.1.2...v1.1.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.2...v1.1.3)
