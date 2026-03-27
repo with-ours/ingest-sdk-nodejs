@@ -85,6 +85,8 @@ export namespace VisitorUpsertParams {
 
     aleid?: string | null;
 
+    axwrt?: string | null;
+
     basis_cid?: string | null;
 
     campaign_id?: string | null;
@@ -223,6 +225,11 @@ export namespace VisitorUpsertParams {
      * The AppLovin aleid query parameter. Ex: aleid123
      */
     aleid?: string | null;
+
+    /**
+     * The AppLovin Axon pixel cookie value (\_axwrt). Web-only.
+     */
+    axwrt?: string | null;
 
     /**
      * The Basis DSP Click ID. Ex: basis_cid123
