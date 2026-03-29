@@ -126,6 +126,11 @@ export namespace TrackEventParams {
     aleid?: string | null;
 
     /**
+     * The AppLovin Axon pixel cookie value (\_axwrt). Web-only.
+     */
+    axwrt?: string | null;
+
+    /**
      * The Basis DSP Click ID. Ex: basis_cid123
      */
     basis_cid?: string | null;
@@ -484,6 +489,8 @@ export namespace TrackEventParams {
     alart?: string | null;
 
     aleid?: string | null;
+
+    axwrt?: string | null;
 
     basis_cid?: string | null;
 
