@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 (2026-04-09)
+
+Full Changelog: [v1.2.0...v1.2.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.2.0...v1.2.1)
+
+### Chores
+
+* **internal:** codegen related update ([a8484ea](https://github.com/with-ours/ingest-sdk-nodejs/commit/a8484eadd4fc55c9c42fdabab9856093f0eaa93b))
+
 ## 1.2.0 (2026-03-27)
 
 Full Changelog: [v1.1.4...v1.2.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.1.4...v1.2.0)
