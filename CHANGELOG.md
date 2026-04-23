@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.2 (2026-04-23)
+
+Full Changelog: [v1.2.1...v1.2.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.2.1...v1.2.2)
+
+### Chores
+
+* **internal:** more robust bootstrap script ([937b519](https://github.com/with-ours/ingest-sdk-nodejs/commit/937b5199907524980a93fadf74ea941cf421c496))
+
 ## 1.2.1 (2026-04-09)
 
 Full Changelog: [v1.2.0...v1.2.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.2.0...v1.2.1)
