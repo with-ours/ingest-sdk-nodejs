@@ -25,6 +25,7 @@ describe('resource track', () => {
       defaultProperties: {
         activeDuration: 0,
         ad_id: 'ad_id',
+        admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
         alart: 'alart',
         aleid: 'aleid',
@@ -104,6 +105,7 @@ describe('resource track', () => {
       userId: 'x',
       userProperties: {
         ad_id: 'ad_id',
+        admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
         alart: 'alart',
         aleid: 'aleid',
