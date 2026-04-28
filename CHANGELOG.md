@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.0 (2026-04-28)
+
+Full Changelog: [v1.2.2...v1.3.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.2.2...v1.3.0)
+
+### Features
+
+* **api:** api update ([3e87c60](https://github.com/with-ours/ingest-sdk-nodejs/commit/3e87c60392ad48bc64bb086ecace57899508276b))
+* support setting headers via env ([2c74f7e](https://github.com/with-ours/ingest-sdk-nodejs/commit/2c74f7e303700ffd74e3e1f688d42f87110b6b96))
+
+
+### Chores
+
+* **internal:** codegen related update ([01d4bb0](https://github.com/with-ours/ingest-sdk-nodejs/commit/01d4bb024fad2d81dae663eb2f60ce8f47dd244b))
+
 ## 1.2.2 (2026-04-23)
 
 Full Changelog: [v1.2.1...v1.2.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.2.1...v1.2.2)
