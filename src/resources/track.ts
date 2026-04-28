@@ -113,6 +113,11 @@ export namespace TrackEventParams {
     ad_id?: string | null;
 
     /**
+     * The Admitad (Mitgo) affiliate Click ID. Ex: admitad_uid_abc123
+     */
+    admitad_uid?: string | null;
+
+    /**
      * The adset id for detected in the session. This is set by the web sdk
      * automatically.
      */
@@ -486,6 +491,8 @@ export namespace TrackEventParams {
    */
   export interface UserProperties {
     ad_id?: string | null;
+
+    admitad_uid?: string | null;
 
     adset_id?: string | null;
 
