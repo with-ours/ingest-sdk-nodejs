@@ -8,8 +8,11 @@ export class Track extends APIResource {
   /**
    * Track events from your server. Please include at least one of: userId,
    * externalId, or email. These properties help us associate events with existing
-   * users. For all fields, null values unset the property and undefined values do
-   * not unset existing properties.
+   * users. For top-level visitor properties: null clears the existing value, while
+   * undefined, omitted fields, and empty strings are ignored. For entries inside
+   * custom_properties: null, undefined, and empty strings are all ignored
+   * (custom_properties use merge semantics). See
+   * https://docs.oursprivacy.com/docs/data-types for details and common pitfalls.
    */
   event(body: TrackEventParams, options?: RequestOptions): APIPromise<TrackEventResponse> {
     return this._client.post('/track', {
@@ -108,6 +111,11 @@ export namespace TrackEventParams {
      * The ad id for detected in the session. This is set by the web sdk automatically.
      */
     ad_id?: string | null;
+
+    /**
+     * The Admitad (Mitgo) affiliate Click ID. Ex: admitad_uid_abc123
+     */
+    admitad_uid?: string | null;
 
     /**
      * The adset id for detected in the session. This is set by the web sdk
@@ -483,6 +491,8 @@ export namespace TrackEventParams {
    */
   export interface UserProperties {
     ad_id?: string | null;
+
+    admitad_uid?: string | null;
 
     adset_id?: string | null;
 
