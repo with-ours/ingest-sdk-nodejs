@@ -1,3 +1,13 @@
+# Batch
+
+Types:
+
+- <code><a href="./src/resources/batch.ts">BatchCreateResponse</a></code>
+
+Methods:
+
+- <code title="post /batch">client.batch.<a href="./src/resources/batch.ts">create</a>({ ...params }) -> BatchCreateResponse</code>
+
 # Track
 
 Types:
@@ -17,13 +27,3 @@ Types:
 Methods:
 
 - <code title="post /identify">client.visitor.<a href="./src/resources/visitor.ts">upsert</a>({ ...params }) -> VisitorUpsertResponse</code>
-
-# Batch
-
-Types:
-
-- <code><a href="./src/resources/batch.ts">BatchCreateResponse</a></code>
-
-Methods:
-
-- <code title="post /batch">client.batch.<a href="./src/resources/batch.ts">create</a>({ ...params }) -> BatchCreateResponse</code>
