@@ -705,17 +705,23 @@ export class OursPrivacy {
 
   static toFile = Uploads.toFile;
 
+  batch: API.Batch = new API.Batch(this);
   track: API.Track = new API.Track(this);
   visitor: API.Visitor = new API.Visitor(this);
-  batch: API.Batch = new API.Batch(this);
 }
 
+OursPrivacy.Batch = Batch;
 OursPrivacy.Track = Track;
 OursPrivacy.Visitor = Visitor;
-OursPrivacy.Batch = Batch;
 
 export declare namespace OursPrivacy {
   export type RequestOptions = Opts.RequestOptions;
+
+  export {
+    Batch as Batch,
+    type BatchCreateResponse as BatchCreateResponse,
+    type BatchCreateParams as BatchCreateParams,
+  };
 
   export {
     Track as Track,
@@ -727,11 +733,5 @@ export declare namespace OursPrivacy {
     Visitor as Visitor,
     type VisitorUpsertResponse as VisitorUpsertResponse,
     type VisitorUpsertParams as VisitorUpsertParams,
-  };
-
-  export {
-    Batch as Batch,
-    type BatchCreateResponse as BatchCreateResponse,
-    type BatchCreateParams as BatchCreateParams,
   };
 }
