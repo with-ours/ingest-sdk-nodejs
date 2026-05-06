@@ -7,7 +7,7 @@ const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'h
 describe('resource batch', () => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.batch.create({ token: 'x', events: [{ event: 'x' }] });
+    const responsePromise = client.batch.create({ token: 'x', events: [{ distinctId: 'x', event: 'x' }] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -23,8 +23,8 @@ describe('resource batch', () => {
       token: 'x',
       events: [
         {
+          distinctId: 'x',
           event: 'x',
-          token: 'x',
           defaultProperties: {
             activeDuration: 0,
             ad_id: 'ad_id',
@@ -99,7 +99,6 @@ describe('resource batch', () => {
             wbraid: 'wbraid',
             webview: true,
           },
-          distinctId: 'x',
           email: 'x',
           eventProperties: { foo: 'string' },
           externalId: 'x',

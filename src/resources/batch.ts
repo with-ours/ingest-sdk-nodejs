@@ -22,18 +22,28 @@ export class Batch extends APIResource {
 export interface BatchCreateResponse {
   accepted: number;
 
-  failed: 0;
+  failed: number;
 
-  results: Array<BatchCreateResponse.Result>;
+  results: Array<BatchCreateResponse.UnionMember0 | BatchCreateResponse.UnionMember1>;
 
-  success: true;
+  success: boolean;
 }
 
 export namespace BatchCreateResponse {
-  export interface Result {
+  export interface UnionMember0 {
     index: number;
 
     success: true;
+  }
+
+  export interface UnionMember1 {
+    code: 'invalid_event' | 'queue_failed';
+
+    index: number;
+
+    message: string;
+
+    success: false;
   }
 }
 
@@ -52,26 +62,21 @@ export interface BatchCreateParams {
 export namespace BatchCreateParams {
   export interface Event {
     /**
+     * A unique identifier for the event. This helps prevent duplicate events.
+     */
+    distinctId: string;
+
+    /**
      * The name of the event you're tracking. This must be whitelisted in the Ours
      * dashboard.
      */
     event: string;
 
     /**
-     * The token for your Source. You can find this in the dashboard.
-     */
-    token?: string;
-
-    /**
      * These properties are used throughout the Ours app to pass known values onto
      * destinations
      */
     defaultProperties?: Event.DefaultProperties | null;
-
-    /**
-     * A unique identifier for the event. This helps prevent duplicate events.
-     */
-    distinctId?: string | null;
 
     /**
      * The email address of a user. We will associate this event with the user or
