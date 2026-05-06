@@ -17,6 +17,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
+import { Batch, BatchCreateParams, BatchCreateResponse } from './resources/batch';
 import { Track, TrackEventParams, TrackEventResponse } from './resources/track';
 import { Visitor, VisitorUpsertParams, VisitorUpsertResponse } from './resources/visitor';
 import { type Fetch } from './internal/builtin-types';
@@ -706,10 +707,12 @@ export class OursPrivacy {
 
   track: API.Track = new API.Track(this);
   visitor: API.Visitor = new API.Visitor(this);
+  batch: API.Batch = new API.Batch(this);
 }
 
 OursPrivacy.Track = Track;
 OursPrivacy.Visitor = Visitor;
+OursPrivacy.Batch = Batch;
 
 export declare namespace OursPrivacy {
   export type RequestOptions = Opts.RequestOptions;
@@ -724,5 +727,11 @@ export declare namespace OursPrivacy {
     Visitor as Visitor,
     type VisitorUpsertResponse as VisitorUpsertResponse,
     type VisitorUpsertParams as VisitorUpsertParams,
+  };
+
+  export {
+    Batch as Batch,
+    type BatchCreateResponse as BatchCreateResponse,
+    type BatchCreateParams as BatchCreateParams,
   };
 }
