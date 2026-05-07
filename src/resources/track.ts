@@ -6,10 +6,12 @@ import { RequestOptions } from '../internal/request-options';
 
 export class Track extends APIResource {
   /**
-   * Track events from your server. Please include at least one of: userId,
-   * externalId, or email. These properties help us associate events with existing
-   * users. For top-level visitor properties: null clears the existing value, while
-   * undefined, omitted fields, and empty strings are ignored. For entries inside
+   * Track events from your server. Include at least one of userId, externalId, or
+   * email so the event can be associated with a visitor. Identity resolution runs in
+   * priority order: userId (direct, no lookup) → externalId (lookup by your ID) →
+   * email (fallback lookup). If you know both userId and externalId, send both. For
+   * top-level visitor properties: null clears the existing value, while undefined,
+   * omitted fields, and empty strings are ignored. For entries inside
    * custom_properties: null, undefined, and empty strings are all ignored
    * (custom_properties use merge semantics). See
    * https://docs.oursprivacy.com/docs/data-types for details and common pitfalls.
@@ -46,14 +48,17 @@ export interface TrackEventParams {
   defaultProperties?: TrackEventParams.DefaultProperties | null;
 
   /**
-   * A unique identifier for the event. This helps prevent duplicate events.
+   * A unique identifier for this event used for deduplication. Highly recommended —
+   * if omitted, Ours will generate one for you, but supplying your own gives you
+   * stronger idempotency guarantees (e.g. a Stripe payment intent ID or your
+   * internal order ID).
    */
   distinctId?: string | null;
 
   /**
-   * The email address of a user. We will associate this event with the user or
-   * create a user. Used for lookup if externalId and userId are not included in the
-   * request.
+   * The email address of a user. Used as a fallback lookup when neither userId nor
+   * externalId is provided. We search your account for a visitor with this email and
+   * attach the event to them. If no match is found, a new visitor is created.
    */
   email?: string | null;
 
@@ -63,9 +68,11 @@ export interface TrackEventParams {
   eventProperties?: { [key: string]: string | null } | null;
 
   /**
-   * The externalId (the ID in your system) of a user. We will associate this event
-   * with the user or create a user. If included in the request, email lookup is
-   * ignored.
+   * Your system's unique identifier for this user. We search your account for an
+   * existing visitor with this externalId and attach the event to them (resolving to
+   * their Ours Visitor ID). If no match is found, a new visitor is created. When
+   * present, email lookup is skipped. If you also have the userId from cookies or
+   * local storage, send both — it removes the lookup round-trip.
    */
   externalId?: string | null;
 
@@ -83,9 +90,10 @@ export interface TrackEventParams {
   time?: number | null;
 
   /**
-   * The Ours user id stored in local storage and cookies on your web properties. If
-   * userId is included in the request, we do not lookup the user by email or
-   * externalId.
+   * The Ours Visitor ID stored in local storage and cookies on your web properties.
+   * When present, this is used directly — no lookup by externalId or email is
+   * performed. If you have both a userId and an externalId, send both so the event
+   * is attached to the right visitor without any lookup overhead.
    */
   userId?: string | null;
 
