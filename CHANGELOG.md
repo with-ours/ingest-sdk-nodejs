@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.1 (2026-05-08)
+
+Full Changelog: [v1.6.0...v1.6.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.6.0...v1.6.1)
+
+### Chores
+
+* redact api-key headers in debug logs ([152e0c5](https://github.com/with-ours/ingest-sdk-nodejs/commit/152e0c5d6f75569315b9179508b294a1c11b8869))
+
 ## 1.6.0 (2026-05-07)
 
 Full Changelog: [v1.5.0...v1.6.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.5.0...v1.6.0)
