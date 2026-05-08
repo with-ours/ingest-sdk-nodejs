@@ -26,6 +26,7 @@ describe('resource batch', () => {
           distinctId: 'x',
           event: 'x',
           defaultProperties: {
+            _ef_transaction_id: '_ef_transaction_id',
             activeDuration: 0,
             ad_id: 'ad_id',
             admitad_uid: 'admitad_uid',
@@ -106,6 +107,7 @@ describe('resource batch', () => {
           time: 0,
           userId: 'x',
           userProperties: {
+            _ef_transaction_id: '_ef_transaction_id',
             ad_id: 'ad_id',
             admitad_uid: 'admitad_uid',
             adset_id: 'adset_id',
