@@ -25,6 +25,7 @@ describe('resource visitor', () => {
     const response = await client.visitor.upsert({
       token: 'x',
       userProperties: {
+        _ef_transaction_id: '_ef_transaction_id',
         ad_id: 'ad_id',
         admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
@@ -85,6 +86,7 @@ describe('resource visitor', () => {
         zip: 'zip',
       },
       defaultProperties: {
+        _ef_transaction_id: '_ef_transaction_id',
         activeDuration: 0,
         ad_id: 'ad_id',
         admitad_uid: 'admitad_uid',

@@ -137,6 +137,12 @@ export namespace BatchCreateParams {
      */
     export interface DefaultProperties {
       /**
+       * The Everflow affiliate Click (Transaction) ID, captured from the
+       * `_ef_transaction_id` URL parameter. Ex: ef_click_abc123
+       */
+      _ef_transaction_id?: string | null;
+
+      /**
        * The active time in milliseconds that the user had this tab active
        */
       activeDuration?: number | null;
@@ -524,6 +530,8 @@ export namespace BatchCreateParams {
      * properties via the identify endpoint.
      */
     export interface UserProperties {
+      _ef_transaction_id?: string | null;
+
       ad_id?: string | null;
 
       admitad_uid?: string | null;
