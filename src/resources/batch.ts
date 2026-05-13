@@ -184,6 +184,12 @@ export namespace BatchCreateParams {
       basis_cid?: string | null;
 
       /**
+       * The Beeswax (FreeWheel Buyer Cloud) auction ID, captured from the
+       * `{{AUCTION_ID}}` macro on creative click URLs. Ex: bx-auc-abc123
+       */
+      beeswax_auction_id?: string | null;
+
+      /**
        * The language of the browser. Ex: en-US
        */
       browser_language?: string | null;
@@ -545,6 +551,8 @@ export namespace BatchCreateParams {
       axwrt?: string | null;
 
       basis_cid?: string | null;
+
+      beeswax_auction_id?: string | null;
 
       campaign_id?: string | null;
 
