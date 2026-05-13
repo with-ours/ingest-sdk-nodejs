@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.0 (2026-05-13)
+
+Full Changelog: [v1.7.0...v1.8.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.7.0...v1.8.0)
+
+### Features
+
+* **api:** OIDC npm ([2921fe8](https://github.com/with-ours/ingest-sdk-nodejs/commit/2921fe872b184bba07015d36575cb8880db3e618))
+
 ## 1.7.0 (2026-05-08)
 
 Full Changelog: [v1.6.1...v1.7.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.6.1...v1.7.0)
