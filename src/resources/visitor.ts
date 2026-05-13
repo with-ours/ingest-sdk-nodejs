@@ -104,6 +104,8 @@ export namespace VisitorUpsertParams {
 
     basis_cid?: string | null;
 
+    beeswax_auction_id?: string | null;
+
     campaign_id?: string | null;
 
     city?: string | null;
@@ -261,6 +263,12 @@ export namespace VisitorUpsertParams {
      * The Basis DSP Click ID. Ex: basis_cid123
      */
     basis_cid?: string | null;
+
+    /**
+     * The Beeswax (FreeWheel Buyer Cloud) auction ID, captured from the
+     * `{{AUCTION_ID}}` macro on creative click URLs. Ex: bx-auc-abc123
+     */
+    beeswax_auction_id?: string | null;
 
     /**
      * The language of the browser. Ex: en-US
