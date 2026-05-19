@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.9.1 (2026-05-19)
+
+Full Changelog: [v1.9.0...v1.9.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.9.0...v1.9.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([1f03c4f](https://github.com/with-ours/ingest-sdk-nodejs/commit/1f03c4fb7ca578f7e312b259012d676344bd776b))
+
+
+### Chores
+
+* **tests:** remove redundant File import ([adbc5df](https://github.com/with-ours/ingest-sdk-nodejs/commit/adbc5df6d6f07479dc1f77cf2eaeaca4aa2d6351))
+
 ## 1.9.0 (2026-05-13)
 
 Full Changelog: [v1.8.0...v1.9.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.8.0...v1.9.0)
