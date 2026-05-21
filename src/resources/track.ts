@@ -477,6 +477,20 @@ export namespace TrackEventParams {
     version?: string | null;
 
     /**
+     * The Viant (Adelphic) Click ID, captured from the `viant_click_id` URL parameter
+     * (Viant `${ADELPHIC_CLICKID}` macro). Sent as `xid` on Viant postbacks. Ex:
+     * viant_click_abc123
+     */
+    viant_click_id?: string | null;
+
+    /**
+     * The Viant (Adelphic) Impression ID, captured from the `viant_impression_id` URL
+     * parameter (Viant `${ADELPHIC_IMPRESSIONID}` macro). Sent as `imp_id` on Viant
+     * postbacks for post-view attribution. Ex: viant_imp_abc123
+     */
+    viant_impression_id?: string | null;
+
+    /**
      * The WBRAID Identifier. The web SDK automatically captures this from the query
      * params.
      */
@@ -628,6 +642,10 @@ export namespace TrackEventParams {
     utm_source?: string | null;
 
     utm_term?: string | null;
+
+    viant_click_id?: string | null;
+
+    viant_impression_id?: string | null;
 
     wbraid?: string | null;
 
