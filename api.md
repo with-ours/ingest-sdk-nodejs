@@ -27,3 +27,15 @@ Types:
 Methods:
 
 - <code title="post /identify">client.visitor.<a href="./src/resources/visitor.ts">upsert</a>({ ...params }) -> VisitorUpsertResponse</code>
+
+# Experiments
+
+Types:
+
+- <code><a href="./src/resources/experiments.ts">ExperimentAssignmentResponse</a></code>
+- <code><a href="./src/resources/experiments.ts">ExperimentPersonalizationResponse</a></code>
+
+Methods:
+
+- <code title="post /experiments/assignments/{experiment_key}">client.experiments.<a href="./src/resources/experiments.ts">assignment</a>(experimentKey, { ...params }) -> ExperimentAssignmentResponse</code>
+- <code title="post /experiments/personalization">client.experiments.<a href="./src/resources/experiments.ts">personalization</a>({ ...params }) -> ExperimentPersonalizationResponse</code>
