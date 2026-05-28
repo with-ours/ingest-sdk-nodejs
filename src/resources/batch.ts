@@ -365,6 +365,14 @@ export namespace BatchCreateParams {
       new_s?: boolean | null;
 
       /**
+       * The OpenAI Ads privacy-preserving reference, captured from the `oppref` URL
+       * parameter on landing pages (the OpenAI Pixel also stores it in a `__oppref`
+       * cookie). Sent to OpenAI Ads on Conversions API events for attribution. Ex:
+       * oppref_abc
+       */
+      oppref?: string | null;
+
+      /**
        * The name of the operating system. Ex: Windows
        */
       os_name?: string | null;
@@ -630,6 +638,8 @@ export namespace BatchCreateParams {
       msclkid?: string | null;
 
       ndclid?: string | null;
+
+      oppref?: string | null;
 
       phone_number?: string | null;
 
