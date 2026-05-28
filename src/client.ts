@@ -18,6 +18,13 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { Batch, BatchCreateParams, BatchCreateResponse } from './resources/batch';
+import {
+  ExperimentAssignmentParams,
+  ExperimentAssignmentResponse,
+  ExperimentPersonalizationParams,
+  ExperimentPersonalizationResponse,
+  Experiments,
+} from './resources/experiments';
 import { Track, TrackEventParams, TrackEventResponse } from './resources/track';
 import { Visitor, VisitorUpsertParams, VisitorUpsertResponse } from './resources/visitor';
 import { type Fetch } from './internal/builtin-types';
@@ -708,11 +715,13 @@ export class OursPrivacy {
   batch: API.Batch = new API.Batch(this);
   track: API.Track = new API.Track(this);
   visitor: API.Visitor = new API.Visitor(this);
+  experiments: API.Experiments = new API.Experiments(this);
 }
 
 OursPrivacy.Batch = Batch;
 OursPrivacy.Track = Track;
 OursPrivacy.Visitor = Visitor;
+OursPrivacy.Experiments = Experiments;
 
 export declare namespace OursPrivacy {
   export type RequestOptions = Opts.RequestOptions;
@@ -733,5 +742,13 @@ export declare namespace OursPrivacy {
     Visitor as Visitor,
     type VisitorUpsertResponse as VisitorUpsertResponse,
     type VisitorUpsertParams as VisitorUpsertParams,
+  };
+
+  export {
+    Experiments as Experiments,
+    type ExperimentAssignmentResponse as ExperimentAssignmentResponse,
+    type ExperimentPersonalizationResponse as ExperimentPersonalizationResponse,
+    type ExperimentAssignmentParams as ExperimentAssignmentParams,
+    type ExperimentPersonalizationParams as ExperimentPersonalizationParams,
   };
 }
