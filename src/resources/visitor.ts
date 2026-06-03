@@ -169,6 +169,8 @@ export namespace VisitorUpsertParams {
 
     ndclid?: string | null;
 
+    ob_click_id?: string | null;
+
     oppref?: string | null;
 
     phone_number?: string | null;
@@ -450,6 +452,12 @@ export namespace VisitorUpsertParams {
      * Deprecated
      */
     new_s?: boolean | null;
+
+    /**
+     * The Outbrain click ID, captured from the `ob_click_id` URL parameter (Outbrain
+     * `{{ob_click_id}}` macro) on the landing page. Ex: ob_click_abc123
+     */
+    ob_click_id?: string | null;
 
     /**
      * The OpenAI Ads privacy-preserving reference, captured from the `oppref` URL

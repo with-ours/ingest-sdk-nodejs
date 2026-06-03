@@ -339,6 +339,12 @@ export namespace TrackEventParams {
     new_s?: boolean | null;
 
     /**
+     * The Outbrain click ID, captured from the `ob_click_id` URL parameter (Outbrain
+     * `{{ob_click_id}}` macro) on the landing page. Ex: ob_click_abc123
+     */
+    ob_click_id?: string | null;
+
+    /**
      * The OpenAI Ads privacy-preserving reference, captured from the `oppref` URL
      * parameter on landing pages (the OpenAI Pixel also stores it in a `__oppref`
      * cookie). Sent to OpenAI Ads on Conversions API events for attribution. Ex:
@@ -612,6 +618,8 @@ export namespace TrackEventParams {
     msclkid?: string | null;
 
     ndclid?: string | null;
+
+    ob_click_id?: string | null;
 
     oppref?: string | null;
 
