@@ -174,7 +174,7 @@ export namespace BatchCreateParams {
       aleid?: string | null;
 
       /**
-       * The AppLovin Axon pixel cookie value (\_axwrt). Web-only.
+       * The AppLovin pixel cookie value (\_axwrt). Web-only.
        */
       axwrt?: string | null;
 
