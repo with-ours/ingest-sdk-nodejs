@@ -601,7 +601,7 @@ export namespace VisitorUpsertParams {
     utm_term?: string | null;
 
     /**
-     * The version of the web SDK
+     * The SDK version (e.g., web SDK or ingest-sdk-\* via Stainless headers)
      */
     version?: string | null;
 
