@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.1 (2026-06-17)
+
+Full Changelog: [v1.15.0...v1.15.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.0...v1.15.1)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([7f4562d](https://github.com/with-ours/ingest-sdk-nodejs/commit/7f4562d4cc176f95ae153ef0b6ebbdfed002f667))
+
 ## 1.15.0 (2026-06-12)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.14.0...v1.15.0)
