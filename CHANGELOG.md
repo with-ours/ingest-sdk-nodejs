@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.15.2 (2026-07-11)
+
+Full Changelog: [v1.15.1...v1.15.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.1...v1.15.2)
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([1a0d77f](https://github.com/with-ours/ingest-sdk-nodejs/commit/1a0d77f7975f02b0b2ea10ff1387cf5348777aba))
+
 ## 1.15.1 (2026-06-17)
 
 Full Changelog: [v1.15.0...v1.15.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.0...v1.15.1)
