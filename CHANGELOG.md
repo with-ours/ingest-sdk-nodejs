@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.16.0 (2026-07-18)
+
+Full Changelog: [v1.15.2...v1.16.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.2...v1.16.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([5b80b46](https://github.com/with-ours/ingest-sdk-nodejs/commit/5b80b46aa55151e9edb749513ce80a17d56db37c))
+
 ## 1.15.2 (2026-07-11)
 
 Full Changelog: [v1.15.1...v1.15.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.1...v1.15.2)
