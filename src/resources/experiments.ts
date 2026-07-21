@@ -63,6 +63,14 @@ export namespace ExperimentAssignmentResponse {
 
     is_control?: boolean | null;
 
+    /**
+     * Redirect destination for redirect (split-URL) variants — a same-domain relative
+     * path or an absolute https:// URL. Present only when the assigned variant is a
+     * redirect; absent for on-page (DOM-modification) variants. Read it straight off
+     * the payload and issue the redirect server-side.
+     */
+    redirect?: string | null;
+
     type?: string | null;
 
     variant_name?: string | null;
