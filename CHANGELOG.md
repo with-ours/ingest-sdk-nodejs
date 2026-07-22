@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.0 (2026-07-21)
+
+Full Changelog: [v1.16.0...v1.17.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.16.0...v1.17.0)
+
+### Features
+
+* **api:** api update ([38bc7a3](https://github.com/with-ours/ingest-sdk-nodejs/commit/38bc7a365bed78ac60d92057db14895ef8e11969))
+
 ## 1.16.0 (2026-07-18)
 
 Full Changelog: [v1.15.2...v1.16.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.15.2...v1.16.0)
