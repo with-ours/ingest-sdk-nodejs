@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.17.1 (2026-07-27)
+
+Full Changelog: [v1.17.0...v1.17.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.0...v1.17.1)
+
+### Bug Fixes
+
+* patch js-yaml and brace-expansion DoS vulnerabilities ([8272f3a](https://github.com/with-ours/ingest-sdk-nodejs/commit/8272f3ab46c51a30045f8091cfcfaa8d14353c12))
+
+
+### Chores
+
+* add Dependabot config for weekly dependency updates ([3d62d3c](https://github.com/with-ours/ingest-sdk-nodejs/commit/3d62d3c994b817b4a0d55159543742aebe0b67d5))
+
 ## 1.17.0 (2026-07-21)
 
 Full Changelog: [v1.16.0...v1.17.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.16.0...v1.17.0)
