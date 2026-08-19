@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.4 (2026-08-19)
+
+Full Changelog: [v1.17.3...v1.17.4](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.3...v1.17.4)
+
+### Chores
+
+* bump the all-deps group with 4 updates ([e0bd43b](https://github.com/with-ours/ingest-sdk-nodejs/commit/e0bd43bf8f829fb0d37968976bab4ed31da6cfbe))
+
 ## 1.17.3 (2026-08-11)
 
 Full Changelog: [v1.17.2...v1.17.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.2...v1.17.3)
