@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.18.1 (2026-08-26)
+
+Full Changelog: [v1.18.0...v1.18.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.0...v1.18.1)
+
 ## 1.18.0 (2026-08-21)
 
 Full Changelog: [v1.17.4...v1.18.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.4...v1.18.0)
