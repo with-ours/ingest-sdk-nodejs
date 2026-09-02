@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.18.2 (2026-09-02)
+
+Full Changelog: [v1.18.1...v1.18.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.1...v1.18.2)
+
+### Chores
+
+* bump the all-deps group with 2 updates ([#64](https://github.com/with-ours/ingest-sdk-nodejs/issues/64)) ([e14226c](https://github.com/with-ours/ingest-sdk-nodejs/commit/e14226c9c800747b1157f8d40f4f45d1dd4cdfa2))
+
 ## 1.18.1 (2026-08-26)
 
 Full Changelog: [v1.18.0...v1.18.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.0...v1.18.1)
