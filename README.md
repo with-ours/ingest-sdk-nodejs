@@ -6,8 +6,6 @@ This library provides convenient access to the Ours Privacy REST API from server
 
 The REST API documentation can be found on [docs.oursprivacy.com](https://docs.oursprivacy.com). The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainless.com/).
-
 ## Installation
 
 ```sh
