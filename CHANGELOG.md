@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.18.3 (2026-09-08)
+
+Full Changelog: [v1.18.2...v1.18.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.2...v1.18.3)
+
+### Chores
+
+* bump the all-deps group with 3 updates ([#66](https://github.com/with-ours/ingest-sdk-nodejs/issues/66)) ([e31c2af](https://github.com/with-ours/ingest-sdk-nodejs/commit/e31c2af0e0de0a773cb5866d35e29643d2919fe9))
+* **deps:** bump browserslist to 4.28.9 to fix ReDoS advisory ([36c33e4](https://github.com/with-ours/ingest-sdk-nodejs/commit/36c33e45dd74688eb4d86c11b991eec52e814404))
+
 ## 1.18.2 (2026-09-02)
 
 Full Changelog: [v1.18.1...v1.18.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.1...v1.18.2)
