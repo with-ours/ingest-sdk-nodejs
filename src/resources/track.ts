@@ -486,7 +486,7 @@ export namespace TrackEventParams {
     utm_term?: string | null;
 
     /**
-     * The SDK version (e.g., web SDK or ingest-sdk-\* via Stainless headers)
+     * The SDK version (e.g., web SDK or ingest-sdk-\* via generated SDK headers)
      */
     version?: string | null;
 

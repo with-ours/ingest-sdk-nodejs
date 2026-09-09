@@ -44,7 +44,8 @@ export class Experiments extends APIResource {
 }
 
 export type ExperimentAssignmentResponse =
-  ExperimentAssignmentResponse.UnionMember0 | ExperimentAssignmentResponse.UnionMember1;
+  | ExperimentAssignmentResponse.UnionMember0
+  | ExperimentAssignmentResponse.UnionMember1;
 
 export namespace ExperimentAssignmentResponse {
   export interface UnionMember0 {
