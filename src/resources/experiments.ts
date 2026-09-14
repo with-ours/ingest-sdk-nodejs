@@ -26,10 +26,13 @@ export class Experiments extends APIResource {
   }
 
   /**
-   * Return the active personalization assignments for a visitor. Read-only and never
-   * records an impression. Personalizations are populated by the event-driven rule
-   * engine — until that ships, this endpoint returns an empty list for every
-   * visitor, which is the correct fail-closed behavior (no false positives).
+   * Return a visitor's active personalization assignments and accumulated
+   * personalization properties. Read-only and never records an impression.
+   * `personalizations` lists the personalization experiences the visitor is
+   * currently assigned to; `properties` returns the visitor traits your
+   * personalization property rules have accumulated, ready to use in server-rendered
+   * copy or targeting. Both are empty for a visitor who has not matched anything
+   * yet.
    */
   personalization(
     body: ExperimentPersonalizationParams,
@@ -85,6 +88,16 @@ export namespace ExperimentAssignmentResponse {
 
 export interface ExperimentPersonalizationResponse {
   personalizations: Array<ExperimentPersonalizationResponse.Personalization>;
+
+  /**
+   * The visitor traits accumulated by your personalization property rules, keyed by
+   * property key. Values are always scalars — a string, number, or boolean, or null
+   * when the captured field was itself empty. Empty for a visitor who has not
+   * matched any rule yet. These same values are delivered to the visitor's browser
+   * and are readable by anyone who knows the visitor_id, so never accumulate
+   * secrets, credentials, PHI, or confidential data into a property.
+   */
+  properties: { [key: string]: string | number | boolean };
 
   success: true;
 }

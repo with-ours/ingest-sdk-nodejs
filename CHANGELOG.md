@@ -1,5 +1,71 @@
 # Changelog
 
+## 1.19.0 (2026-09-11)
+
+Full Changelog: [v1.18.2...v1.19.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.2...v1.19.0)
+
+### Features
+
+* **api:** API update.
+## 1.18.3 (2026-09-08)
+
+Full Changelog: [v1.18.2...v1.18.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.2...v1.18.3)
+
+### Chores
+
+* bump the all-deps group with 3 updates ([#66](https://github.com/with-ours/ingest-sdk-nodejs/issues/66)) ([e31c2af](https://github.com/with-ours/ingest-sdk-nodejs/commit/e31c2af0e0de0a773cb5866d35e29643d2919fe9))
+* **deps:** bump browserslist to 4.28.9 to fix ReDoS advisory ([36c33e4](https://github.com/with-ours/ingest-sdk-nodejs/commit/36c33e45dd74688eb4d86c11b991eec52e814404))
+
+## 1.18.2 (2026-09-02)
+
+Full Changelog: [v1.18.1...v1.18.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.1...v1.18.2)
+
+### Chores
+
+* bump the all-deps group with 2 updates ([#64](https://github.com/with-ours/ingest-sdk-nodejs/issues/64)) ([e14226c](https://github.com/with-ours/ingest-sdk-nodejs/commit/e14226c9c800747b1157f8d40f4f45d1dd4cdfa2))
+
+## 1.18.1 (2026-08-26)
+
+Full Changelog: [v1.18.0...v1.18.1](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.18.0...v1.18.1)
+
+## 1.18.0 (2026-08-21)
+
+Full Changelog: [v1.17.4...v1.18.0](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.4...v1.18.0)
+
+### Features
+
+* **api:** api update ([76020b1](https://github.com/with-ours/ingest-sdk-nodejs/commit/76020b190c43cc70d73cec35f6195cbad9ac000c))
+
+## 1.17.4 (2026-08-19)
+
+Full Changelog: [v1.17.3...v1.17.4](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.3...v1.17.4)
+
+### Chores
+
+* bump the all-deps group with 4 updates ([e0bd43b](https://github.com/with-ours/ingest-sdk-nodejs/commit/e0bd43bf8f829fb0d37968976bab4ed31da6cfbe))
+
+## 1.17.3 (2026-08-11)
+
+Full Changelog: [v1.17.2...v1.17.3](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.2...v1.17.3)
+
+### Bug Fixes
+
+* bump actions/checkout from 6.0.2 to 7.0.1 ([#51](https://github.com/with-ours/ingest-sdk-nodejs/issues/51)) ([9c7b1fb](https://github.com/with-ours/ingest-sdk-nodejs/commit/9c7b1fbe04bb5e62c311d7b581c5878f30dfc798))
+* bump actions/github-script from 8.0.0 to 9.0.0 ([#50](https://github.com/with-ours/ingest-sdk-nodejs/issues/50)) ([6865e5b](https://github.com/with-ours/ingest-sdk-nodejs/commit/6865e5bc6ca8e302c2f36d04a6dd7fa287046dff))
+* bump actions/setup-node from 3.9.1 to 7.0.0 ([#52](https://github.com/with-ours/ingest-sdk-nodejs/issues/52)) ([07cb729](https://github.com/with-ours/ingest-sdk-nodejs/commit/07cb7295e37ca8f41a61afc230a183b4bb7d07ca))
+* bump pnpm/action-setup from 4.3.0 to 6.0.9 ([#49](https://github.com/with-ours/ingest-sdk-nodejs/issues/49)) ([aa511d1](https://github.com/with-ours/ingest-sdk-nodejs/commit/aa511d1837dbdaf601cd56177a9c38f4f02415fe))
+
+
+### Chores
+
+* bump the all-deps group across 1 directory with 15 updates ([#53](https://github.com/with-ours/ingest-sdk-nodejs/issues/53)) ([95a12c0](https://github.com/with-ours/ingest-sdk-nodejs/commit/95a12c02f16d9d2434cee9b6e6c56866ceb54751))
+* exclude dependabot.yml from prettier ([779c125](https://github.com/with-ours/ingest-sdk-nodejs/commit/779c1251c8c74975b19ef57d215dea7919c5e19e))
+
+
+### Styles
+
+* reformat for prettier 3.9.6 ([a41adbd](https://github.com/with-ours/ingest-sdk-nodejs/commit/a41adbd83490561db498c1dd0030b5772b95a609))
+
 ## 1.17.2 (2026-08-03)
 
 Full Changelog: [v1.17.1...v1.17.2](https://github.com/with-ours/ingest-sdk-nodejs/compare/v1.17.1...v1.17.2)
