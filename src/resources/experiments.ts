@@ -92,7 +92,7 @@ export interface ExperimentPersonalizationResponse {
    * and are readable by anyone who knows the visitor_id, so never accumulate
    * secrets, credentials, PHI, or confidential data into a property.
    */
-  properties: { [key: string]: string | number | boolean };
+  properties: { [key: string]: string | number | boolean | null };
 
   success: true;
 
