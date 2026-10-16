@@ -34,13 +34,14 @@ export interface TrackEventResponse {
 
 export interface TrackEventParams {
   /**
-   * The token for your Source. You can find this in the dashboard.
+   * The token for your Source. You can find this in the dashboard. Leading and
+   * trailing whitespace is removed before validation.
    */
   token: string;
 
   /**
    * The name of the event you're tracking. This must be whitelisted in the Ours
-   * dashboard.
+   * dashboard. Leading and trailing whitespace is removed before validation.
    */
   event: string;
 
@@ -54,7 +55,9 @@ export interface TrackEventParams {
    * A unique identifier for this event used for deduplication. Highly recommended —
    * if omitted, Ours will generate one for you, but supplying your own gives you
    * stronger idempotency guarantees (e.g. a Stripe payment intent ID or your
-   * internal order ID).
+   * internal order ID). Non-string input is converted to text before validation;
+   * clients should send a string. Leading and trailing whitespace is removed before
+   * validation.
    */
   distinctId?: string | null;
 
@@ -62,21 +65,76 @@ export interface TrackEventParams {
    * The email address of a user. When userId is absent and externalId does not
    * resolve a visitor, we search your account for a visitor with this email. If no
    * match is found, we try userProperties.phone_number before creating a new
-   * visitor.
+   * visitor. Leading and trailing whitespace is removed before validation.
    */
   email?: string | null;
 
   /**
-   * Any additional event properties you want to pass along.
+   * Any additional event properties you want to pass along. Use at most 200 nonempty
+   * property keys and five object levels. Array contents do not count toward the
+   * object-depth limit. Empty keys are removed recursively, arrays are truncated to
+   * 250 entries, and top-level numbers outside the safe integer range become
+   * strings. After normalization, the serialized JSON must be shorter than 1,048,576
+   * UTF-16 code units.
    */
-  eventProperties?: { [key: string]: string | null } | null;
+  eventProperties?: {
+    [key: string]:
+      | string
+      | null
+      | number
+      | boolean
+      | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+      | {
+          [key: string]:
+            | string
+            | null
+            | number
+            | boolean
+            | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+            | {
+                [key: string]:
+                  | string
+                  | null
+                  | number
+                  | boolean
+                  | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+                  | {
+                      [key: string]:
+                        | string
+                        | null
+                        | number
+                        | boolean
+                        | Array<
+                            string | null | number | boolean | Array<unknown> | { [key: string]: unknown }
+                          >
+                        | {
+                            [key: string]:
+                              | string
+                              | null
+                              | number
+                              | boolean
+                              | Array<
+                                  | string
+                                  | null
+                                  | number
+                                  | boolean
+                                  | Array<unknown>
+                                  | { [key: string]: unknown }
+                                >;
+                          };
+                    };
+              };
+        };
+  } | null;
 
   /**
    * Your system's unique identifier for this user. When userId is absent, we search
    * your account for an existing visitor with this externalId. If no match is found,
    * we try email and then userProperties.phone_number before creating a new visitor.
    * If you also have the userId from cookies or local storage, send both — it
-   * removes the lookup round-trip.
+   * removes the lookup round-trip. Non-string input is converted to text before
+   * validation; clients should send a string. Leading and trailing whitespace is
+   * removed before validation.
    */
   externalId?: string | null;
 
@@ -97,7 +155,8 @@ export interface TrackEventParams {
    * The Ours Visitor ID stored in local storage and cookies on your web properties.
    * When present, this is used directly — no lookup by externalId, email, or phone
    * is performed. If you have both a userId and an externalId, send both so the
-   * event is attached to the right visitor without any lookup overhead.
+   * event is attached to the right visitor without any lookup overhead. Leading and
+   * trailing whitespace is removed before validation.
    */
   userId?: string | null;
 
@@ -116,7 +175,8 @@ export namespace TrackEventParams {
   export interface DefaultProperties {
     /**
      * The Everflow affiliate Click (Transaction) ID, captured from the
-     * `_ef_transaction_id` URL parameter. Ex: ef_click_abc123
+     * `_ef_transaction_id` URL parameter. Ex: ef_click_abc123 Leading and trailing
+     * whitespace is removed before validation.
      */
     _ef_transaction_id?: string | null;
 
@@ -127,104 +187,122 @@ export namespace TrackEventParams {
 
     /**
      * The ad id for detected in the session. This is set by the web sdk automatically.
+     * Leading and trailing whitespace is removed before validation.
      */
     ad_id?: string | null;
 
     /**
-     * The Admitad (Mitgo) affiliate Click ID. Ex: admitad_uid_abc123
+     * The Admitad (Mitgo) affiliate Click ID. Ex: admitad_uid_abc123 Leading and
+     * trailing whitespace is removed before validation.
      */
     admitad_uid?: string | null;
 
     /**
      * The adset id for detected in the session. This is set by the web sdk
-     * automatically.
+     * automatically. Leading and trailing whitespace is removed before validation.
      */
     adset_id?: string | null;
 
     /**
-     * The AppLovin alart query parameter. Ex: alart123
+     * The AppLovin alart query parameter. Ex: alart123 Leading and trailing whitespace
+     * is removed before validation.
      */
     alart?: string | null;
 
     /**
-     * The AppLovin aleid query parameter. Ex: aleid123
+     * The AppLovin aleid query parameter. Ex: aleid123 Leading and trailing whitespace
+     * is removed before validation.
      */
     aleid?: string | null;
 
     /**
-     * The AppLovin pixel cookie value (\_axwrt). Web-only.
+     * The AppLovin pixel cookie value (\_axwrt). Web-only. Leading and trailing
+     * whitespace is removed before validation.
      */
     axwrt?: string | null;
 
     /**
-     * The Basis DSP Click ID. Ex: basis_cid123
+     * The Basis DSP Click ID. Ex: basis_cid123 Leading and trailing whitespace is
+     * removed before validation.
      */
     basis_cid?: string | null;
 
     /**
      * The Beeswax (FreeWheel Buyer Cloud) auction ID, captured from the
-     * `{{AUCTION_ID}}` macro on creative click URLs. Ex: bx-auc-abc123
+     * `{{AUCTION_ID}}` macro on creative click URLs. Ex: bx-auc-abc123 Leading and
+     * trailing whitespace is removed before validation.
      */
     beeswax_auction_id?: string | null;
 
     /**
-     * The language of the browser. Ex: en-US
+     * The language of the browser. Ex: en-US Leading and trailing whitespace is
+     * removed before validation.
      */
     browser_language?: string | null;
 
     /**
-     * The name of the browser. Ex: Chrome
+     * The name of the browser. Ex: Chrome Leading and trailing whitespace is removed
+     * before validation.
      */
     browser_name?: string | null;
 
     /**
-     * The version of the browser. Ex: 114.0
+     * The version of the browser. Ex: 114.0 Leading and trailing whitespace is removed
+     * before validation.
      */
     browser_version?: string | null;
 
     /**
      * The campaign id for detected in the session. This is set by the web sdk
-     * automatically.
+     * automatically. Leading and trailing whitespace is removed before validation.
      */
     campaign_id?: string | null;
 
     /**
-     * The Click ID. Ex: clickid123
+     * The Click ID. Ex: clickid123 Leading and trailing whitespace is removed before
+     * validation.
      */
     clickid?: string | null;
 
     /**
-     * The Generic Click ID. Ex: clid123
+     * The Generic Click ID. Ex: clid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     clid?: string | null;
 
     /**
-     * The architecture of the CPU. Ex: x64
+     * The architecture of the CPU. Ex: x64 Leading and trailing whitespace is removed
+     * before validation.
      */
     cpu_architecture?: string | null;
 
     /**
-     * The full url (including query params) of the current page
+     * The full url (including query params) of the current page Leading and trailing
+     * whitespace is removed before validation.
      */
     current_url?: string | null;
 
     /**
-     * The DoubleClick Click ID. Ex: dclid123
+     * The DoubleClick Click ID. Ex: dclid123 Leading and trailing whitespace is
+     * removed before validation.
      */
     dclid?: string | null;
 
     /**
-     * The model of the device. Ex: iPhone 13
+     * The model of the device. Ex: iPhone 13 Leading and trailing whitespace is
+     * removed before validation.
      */
     device_model?: string | null;
 
     /**
-     * The type of device the user is using. Ex: mobile
+     * The type of device the user is using. Ex: mobile Leading and trailing whitespace
+     * is removed before validation.
      */
     device_type?: string | null;
 
     /**
-     * The vendor of the device. Ex: Apple
+     * The vendor of the device. Ex: Apple Leading and trailing whitespace is removed
+     * before validation.
      */
     device_vendor?: string | null;
 
@@ -234,40 +312,47 @@ export namespace TrackEventParams {
     duration?: number | null;
 
     /**
-     * The browsers encoding. Ex: UTF-8
+     * The browsers encoding. Ex: UTF-8 Leading and trailing whitespace is removed
+     * before validation.
      */
     encoding?: string | null;
 
     /**
-     * The name of the browser engine. Ex: Blink
+     * The name of the browser engine. Ex: Blink Leading and trailing whitespace is
+     * removed before validation.
      */
     engine_name?: string | null;
 
     /**
-     * The version of the browser engine. Ex: 114.0
+     * The version of the browser engine. Ex: 114.0 Leading and trailing whitespace is
+     * removed before validation.
      */
     engine_version?: string | null;
 
     /**
-     * The Pinterest Click ID. Ex: epik456
+     * The Pinterest Click ID. Ex: epik456 Leading and trailing whitespace is removed
+     * before validation.
      */
     epik?: string | null;
 
     /**
      * Facebook Click ID with prefix format for Conversions API tracking. Ex:
-     * fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890
+     * fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890 Leading and trailing
+     * whitespace is removed before validation.
      */
     fbc?: string | null;
 
     /**
      * Raw Facebook Click ID query parameter without prefix from ad clicks. Ex:
-     * AbCdEfGhIjKlMnOpQrStUvWxYz1234567890
+     * AbCdEfGhIjKlMnOpQrStUvWxYz1234567890 Leading and trailing whitespace is removed
+     * before validation.
      */
     fbclid?: string | null;
 
     /**
      * Facebook Browser ID parameter for identifying browsers and attributing events.
-     * Ex: fb.1.1554763741205.1098115397
+     * Ex: fb.1.1554763741205.1098115397 Leading and trailing whitespace is removed
+     * before validation.
      */
     fbp?: string | null;
 
@@ -277,22 +362,41 @@ export namespace TrackEventParams {
     fv?: boolean | null;
 
     /**
-     * The Google Ad Source. Ex: google
+     * The Google Ad Source. Ex: google Leading and trailing whitespace is removed
+     * before validation.
      */
     gad_source?: string | null;
 
     /**
-     * The Google Braid ID. Ex: gbraid123
+     * The Google Braid ID. Ex: gbraid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     gbraid?: string | null;
 
     /**
-     * The Google Click ID. Ex: gclid123
+     * The Google Click ID. Ex: gclid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     gclid?: string | null;
 
     /**
-     * The host of the current page. Ex: example.com
+     * The Gravity attribution ID, captured from the `graid` URL parameter on the
+     * landing page. Gravity resolves it to the campaign, publisher, and ad IDs
+     * server-side. Ex: graid-abc123 Leading and trailing whitespace is removed before
+     * validation.
+     */
+    graid?: string | null;
+
+    /**
+     * The Gravity click ID, captured from the `grclid` URL parameter that Gravity
+     * (trygravity.com) appends to ad click-through URLs on the landing page. Ex:
+     * grclid-abc123 Leading and trailing whitespace is removed before validation.
+     */
+    grclid?: string | null;
+
+    /**
+     * The host of the current page. Ex: example.com Leading and trailing whitespace is
+     * removed before validation.
      */
     host?: string | null;
 
@@ -302,38 +406,43 @@ export namespace TrackEventParams {
     iframe?: boolean | null;
 
     /**
-     * The Impact Click ID reference. Ex: im_ref123
+     * The Impact Click ID reference. Ex: im_ref123 Leading and trailing whitespace is
+     * removed before validation.
      */
     im_ref?: string | null;
 
     /**
-     * The IP address of the user. Ex: 127.0.0.1
+     * The IP address of the user. Ex: 127.0.0.1 Leading and trailing whitespace is
+     * removed before validation.
      */
     ip?: string | null;
 
     /**
-     * The Impact Click ID. Ex: irclickid123
+     * The Impact Click ID. Ex: irclickid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     irclickid?: string | null;
 
     /**
-     * Whether we have detected that the user is a bot. This is set automatically by
-     * the Ours server primarily for events tracked through the web SDK.
+     * Any JSON value: string, number, boolean, array, object, or null.
      */
-    is_bot?: string | null;
+    is_bot?: string | null | number | boolean | Array<unknown> | { [key: string]: unknown };
 
     /**
-     * The LinkedIn Click ID. Ex: li_fat_id123
+     * The LinkedIn Click ID. Ex: li_fat_id123 Leading and trailing whitespace is
+     * removed before validation.
      */
     li_fat_id?: string | null;
 
     /**
-     * The Microsoft Click ID. Ex: msclkid123
+     * The Microsoft Click ID. Ex: msclkid123 Leading and trailing whitespace is
+     * removed before validation.
      */
     msclkid?: string | null;
 
     /**
-     * The NextDoor Click ID. Ex: ndclid123
+     * The NextDoor Click ID. Ex: ndclid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     ndclid?: string | null;
 
@@ -344,7 +453,8 @@ export namespace TrackEventParams {
 
     /**
      * The Outbrain click ID, captured from the `ob_click_id` URL parameter (Outbrain
-     * `{{ob_click_id}}` macro) on the landing page. Ex: ob_click_abc123
+     * `{{ob_click_id}}` macro) on the landing page. Ex: ob_click_abc123 Leading and
+     * trailing whitespace is removed before validation.
      */
     ob_click_id?: string | null;
 
@@ -352,17 +462,19 @@ export namespace TrackEventParams {
      * The OpenAI Ads privacy-preserving reference, captured from the `oppref` URL
      * parameter on landing pages (the OpenAI Pixel also stores it in a `__oppref`
      * cookie). Sent to OpenAI Ads on Conversions API events for attribution. Ex:
-     * oppref_abc
+     * oppref_abc Leading and trailing whitespace is removed before validation.
      */
     oppref?: string | null;
 
     /**
-     * The name of the operating system. Ex: Windows
+     * The name of the operating system. Ex: Windows Leading and trailing whitespace is
+     * removed before validation.
      */
     os_name?: string | null;
 
     /**
-     * The version of the operating system. Ex: 10.0
+     * The version of the operating system. Ex: 10.0 Leading and trailing whitespace is
+     * removed before validation.
      */
     os_version?: string | null;
 
@@ -372,17 +484,20 @@ export namespace TrackEventParams {
     page_hash?: number | null;
 
     /**
-     * The pathname of the current page. Ex: /home
+     * The pathname of the current page. Ex: /home Leading and trailing whitespace is
+     * removed before validation.
      */
     pathname?: string | null;
 
     /**
-     * The Quora Click ID. Ex: qclid123
+     * The Quora Click ID. Ex: qclid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     qclid?: string | null;
 
     /**
-     * The Reddit Click ID. Ex: rdt_cid123
+     * The Reddit Click ID. Ex: rdt_cid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     rdt_cid?: string | null;
 
@@ -392,22 +507,26 @@ export namespace TrackEventParams {
     received_at?: string | null;
 
     /**
-     * The referrer URL of the current page
+     * The referrer URL of the current page Leading and trailing whitespace is removed
+     * before validation.
      */
     referrer?: string | null;
 
     /**
-     * The referring domain of the current page
+     * The referring domain of the current page Leading and trailing whitespace is
+     * removed before validation.
      */
     referring_domain?: string | null;
 
     /**
-     * The StackAdapt Tracking ID. Ex: sacid123
+     * The StackAdapt Tracking ID. Ex: sacid123 Leading and trailing whitespace is
+     * removed before validation.
      */
     sacid?: string | null;
 
     /**
-     * The SnapChat Click ID. Ex: sccid123
+     * The SnapChat Click ID. Ex: sccid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     sccid?: string | null;
 
@@ -428,89 +547,105 @@ export namespace TrackEventParams {
 
     /**
      * The session ID as assigned automatically by the web SDK. This is required for
-     * session replay
+     * session replay Leading and trailing whitespace is removed before validation.
      */
     sid?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     sr?: string | null;
 
     /**
-     * The title of the current page
+     * The title of the current page Leading and trailing whitespace is removed before
+     * validation.
      */
     title?: string | null;
 
     /**
-     * The TikTok Click ID. Ex: ttclid123
+     * The TikTok Click ID. Ex: ttclid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     ttclid?: string | null;
 
     /**
-     * The Twitter Click ID. Ex: twclid123
+     * The Twitter Click ID. Ex: twclid123 Leading and trailing whitespace is removed
+     * before validation.
      */
     twclid?: string | null;
 
     /**
-     * User agent as a full list of strings.
+     * User agent as a full list of strings. Leading and trailing whitespace is removed
+     * before validation.
      */
     uafvl?: string | null;
 
     /**
-     * The user agent of the browser
+     * The user agent of the browser Leading and trailing whitespace is removed before
+     * validation.
      */
     user_agent?: string | null;
 
     /**
      * The UTM Campaign. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_campaign?: string | null;
 
     /**
      * The UTM Content. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_content?: string | null;
 
     /**
      * The UTM Medium. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_medium?: string | null;
 
     /**
      * The UTM Name. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_name?: string | null;
 
     /**
      * The UTM Source. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_source?: string | null;
 
     /**
      * The UTM Term. The web SDK automatically captures this from the query params.
+     * Leading and trailing whitespace is removed before validation.
      */
     utm_term?: string | null;
 
     /**
      * The SDK version (e.g., web SDK or ingest-sdk-\* via generated SDK headers)
+     * Leading and trailing whitespace is removed before validation.
      */
     version?: string | null;
 
     /**
      * The Viant (Adelphic) Click ID, captured from the `viant_click_id` URL parameter
      * (Viant `${ADELPHIC_CLICKID}` macro). Sent as `xid` on Viant postbacks. Ex:
-     * viant_click_abc123
+     * viant_click_abc123 Leading and trailing whitespace is removed before validation.
      */
     viant_click_id?: string | null;
 
     /**
      * The Viant (Adelphic) Impression ID, captured from the `viant_impression_id` URL
      * parameter (Viant `${ADELPHIC_IMPRESSIONID}` macro). Sent as `imp_id` on Viant
-     * postbacks for post-view attribution. Ex: viant_imp_abc123
+     * postbacks for post-view attribution. Ex: viant_imp_abc123 Leading and trailing
+     * whitespace is removed before validation.
      */
     viant_impression_id?: string | null;
 
     /**
      * The WBRAID Identifier. The web SDK automatically captures this from the query
-     * params.
+     * params. Leading and trailing whitespace is removed before validation.
      */
     wbraid?: string | null;
 
@@ -542,10 +677,16 @@ export namespace TrackEventParams {
    * properties via the identify endpoint.
    */
   export interface UserProperties {
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     _ef_transaction_id?: string | null;
 
     ad_id?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     admitad_uid?: string | null;
 
     adset_id?: string | null;
@@ -556,34 +697,176 @@ export namespace TrackEventParams {
 
     axwrt?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     basis_cid?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     beeswax_auction_id?: string | null;
 
     campaign_id?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     city?: string | null;
 
     clickid?: string | null;
 
     clid?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     company_name?: string | null;
 
-    consent?: { [key: string]: string | null } | null;
+    /**
+     * Use at most 200 nonempty property keys and five object levels. Array contents do
+     * not count toward the object-depth limit. Empty keys are removed recursively,
+     * arrays are truncated to 250 entries, and top-level numbers outside the safe
+     * integer range become strings. After normalization, the serialized JSON must be
+     * shorter than 1,048,576 UTF-16 code units.
+     */
+    consent?: {
+      [key: string]:
+        | string
+        | null
+        | number
+        | boolean
+        | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+        | {
+            [key: string]:
+              | string
+              | null
+              | number
+              | boolean
+              | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+              | {
+                  [key: string]:
+                    | string
+                    | null
+                    | number
+                    | boolean
+                    | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+                    | {
+                        [key: string]:
+                          | string
+                          | null
+                          | number
+                          | boolean
+                          | Array<
+                              string | null | number | boolean | Array<unknown> | { [key: string]: unknown }
+                            >
+                          | {
+                              [key: string]:
+                                | string
+                                | null
+                                | number
+                                | boolean
+                                | Array<
+                                    | string
+                                    | null
+                                    | number
+                                    | boolean
+                                    | Array<unknown>
+                                    | { [key: string]: unknown }
+                                  >;
+                            };
+                      };
+                };
+          };
+    } | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     country?: string | null;
 
-    custom_properties?: { [key: string]: string | null } | null;
+    /**
+     * Use at most 200 nonempty property keys and five object levels. Array contents do
+     * not count toward the object-depth limit. Empty keys are removed recursively,
+     * arrays are truncated to 250 entries, and top-level numbers outside the safe
+     * integer range become strings. After normalization, the serialized JSON must be
+     * shorter than 1,048,576 UTF-16 code units.
+     */
+    custom_properties?: {
+      [key: string]:
+        | string
+        | null
+        | number
+        | boolean
+        | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+        | {
+            [key: string]:
+              | string
+              | null
+              | number
+              | boolean
+              | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+              | {
+                  [key: string]:
+                    | string
+                    | null
+                    | number
+                    | boolean
+                    | Array<string | null | number | boolean | Array<unknown> | { [key: string]: unknown }>
+                    | {
+                        [key: string]:
+                          | string
+                          | null
+                          | number
+                          | boolean
+                          | Array<
+                              string | null | number | boolean | Array<unknown> | { [key: string]: unknown }
+                            >
+                          | {
+                              [key: string]:
+                                | string
+                                | null
+                                | number
+                                | boolean
+                                | Array<
+                                    | string
+                                    | null
+                                    | number
+                                    | boolean
+                                    | Array<unknown>
+                                    | { [key: string]: unknown }
+                                  >;
+                            };
+                      };
+                };
+          };
+    } | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     date_of_birth?: string | null;
 
     dclid?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     email?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     epik?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     external_id?: string | null;
 
     fbc?: string | null;
@@ -592,6 +875,10 @@ export namespace TrackEventParams {
 
     fbp?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     first_name?: string | null;
 
     gad_source?: string | null;
@@ -600,21 +887,46 @@ export namespace TrackEventParams {
 
     gclid?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     gender?: string | null;
+
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
+    graid?: string | null;
+
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
+    grclid?: string | null;
 
     im_ref?: string | null;
 
     /**
-     * The IP address of the user
+     * The IP address of the user Leading and trailing whitespace is removed before
+     * validation.
      */
     ip?: string | null;
 
     irclickid?: string | null;
 
-    is_bot?: string | null;
+    /**
+     * Any JSON value: string, number, boolean, array, object, or null.
+     */
+    is_bot?: string | null | number | boolean | Array<unknown> | { [key: string]: unknown };
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     job_title?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     last_name?: string | null;
 
     li_fat_id?: string | null;
@@ -623,11 +935,17 @@ export namespace TrackEventParams {
 
     ndclid?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     ob_click_id?: string | null;
 
     oppref?: string | null;
 
-    phone_number?: string | null;
+    /**
+     * Any JSON value: string, number, boolean, array, object, or null.
+     */
+    phone_number?: string | null | number | boolean | Array<unknown> | { [key: string]: unknown };
 
     qclid?: string | null;
 
@@ -637,12 +955,23 @@ export namespace TrackEventParams {
 
     referring_domain?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     sacid?: string | null;
 
     sccid?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     sid?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string. Leading and trailing whitespace is removed before validation.
+     */
     state?: string | null;
 
     ttclid?: string | null;
@@ -653,25 +982,58 @@ export namespace TrackEventParams {
 
     user_agent_full_list?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_campaign?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_content?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_medium?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_name?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_source?: string | null;
 
+    /**
+     * Non-string input is converted to text before validation; clients should send a
+     * string.
+     */
     utm_term?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     viant_click_id?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     viant_impression_id?: string | null;
 
     wbraid?: string | null;
 
-    zip?: string | null;
+    /**
+     * Any JSON value: string, number, boolean, array, object, or null.
+     */
+    zip?: string | null | number | boolean | Array<unknown> | { [key: string]: unknown };
   }
 }
 
