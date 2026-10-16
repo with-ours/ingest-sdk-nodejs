@@ -8,7 +8,7 @@ describe('resource visitor', () => {
   // Mock server tests are disabled
   test.skip('upsert: only required params', async () => {
     const responsePromise = client.visitor.upsert({
-      token: 'x',
+      token: 'P',
       userProperties: {},
     });
     const rawResponse = await responsePromise.asResponse();
@@ -23,7 +23,7 @@ describe('resource visitor', () => {
   // Mock server tests are disabled
   test.skip('upsert: required and optional params', async () => {
     const response = await client.visitor.upsert({
-      token: 'x',
+      token: 'P',
       userProperties: {
         _ef_transaction_id: '_ef_transaction_id',
         ad_id: 'ad_id',
@@ -55,10 +55,12 @@ describe('resource visitor', () => {
         gbraid: 'gbraid',
         gclid: 'gclid',
         gender: 'gender',
+        graid: 'graid',
+        grclid: 'grclid',
         im_ref: 'im_ref',
         ip: 'ip',
         irclickid: 'irclickid',
-        is_bot: 'is_bot',
+        is_bot: 'string',
         job_title: 'job_title',
         last_name: 'last_name',
         li_fat_id: 'li_fat_id',
@@ -66,7 +68,7 @@ describe('resource visitor', () => {
         ndclid: 'ndclid',
         ob_click_id: 'ob_click_id',
         oppref: 'oppref',
-        phone_number: 'phone_number',
+        phone_number: 'string',
         qclid: 'qclid',
         rdt_cid: 'rdt_cid',
         referrer: 'referrer',
@@ -88,7 +90,7 @@ describe('resource visitor', () => {
         viant_click_id: 'viant_click_id',
         viant_impression_id: 'viant_impression_id',
         wbraid: 'wbraid',
-        zip: 'zip',
+        zip: 'string',
       },
       defaultProperties: {
         _ef_transaction_id: '_ef_transaction_id',
@@ -125,12 +127,14 @@ describe('resource visitor', () => {
         gad_source: 'gad_source',
         gbraid: 'gbraid',
         gclid: 'gclid',
+        graid: 'graid',
+        grclid: 'grclid',
         host: 'host',
         iframe: true,
         im_ref: 'im_ref',
         ip: 'ip',
         irclickid: 'irclickid',
-        is_bot: 'is_bot',
+        is_bot: 'string',
         li_fat_id: 'li_fat_id',
         msclkid: 'msclkid',
         ndclid: 'ndclid',
@@ -170,10 +174,10 @@ describe('resource visitor', () => {
         wbraid: 'wbraid',
         webview: true,
       },
-      email: 'x',
-      externalId: 'x',
+      email: 'P',
+      externalId: 'P',
       identityContext: { ip: 'ip', userAgent: 'userAgent' },
-      userId: 'x',
+      userId: 'P',
     });
   });
 });

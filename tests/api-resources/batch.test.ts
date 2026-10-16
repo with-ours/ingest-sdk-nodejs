@@ -7,7 +7,7 @@ const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'h
 describe('resource batch', () => {
   // Mock server tests are disabled
   test.skip('create: only required params', async () => {
-    const responsePromise = client.batch.create({ token: 'x', events: [{ distinctId: 'x', event: 'x' }] });
+    const responsePromise = client.batch.create({ token: 'P', events: [{ distinctId: 'P', event: 'P' }] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,11 +20,11 @@ describe('resource batch', () => {
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.batch.create({
-      token: 'x',
+      token: 'P',
       events: [
         {
-          distinctId: 'x',
-          event: 'x',
+          distinctId: 'P',
+          event: 'P',
           defaultProperties: {
             _ef_transaction_id: '_ef_transaction_id',
             activeDuration: 0,
@@ -60,12 +60,14 @@ describe('resource batch', () => {
             gad_source: 'gad_source',
             gbraid: 'gbraid',
             gclid: 'gclid',
+            graid: 'graid',
+            grclid: 'grclid',
             host: 'host',
             iframe: true,
             im_ref: 'im_ref',
             ip: 'ip',
             irclickid: 'irclickid',
-            is_bot: 'is_bot',
+            is_bot: 'string',
             li_fat_id: 'li_fat_id',
             msclkid: 'msclkid',
             ndclid: 'ndclid',
@@ -105,12 +107,12 @@ describe('resource batch', () => {
             wbraid: 'wbraid',
             webview: true,
           },
-          email: 'x',
+          email: 'P',
           eventProperties: { foo: 'string' },
-          externalId: 'x',
+          externalId: 'P',
           identityContext: { ip: 'ip', userAgent: 'userAgent' },
           time: 0,
-          userId: 'x',
+          userId: 'P',
           userProperties: {
             _ef_transaction_id: '_ef_transaction_id',
             ad_id: 'ad_id',
@@ -142,10 +144,12 @@ describe('resource batch', () => {
             gbraid: 'gbraid',
             gclid: 'gclid',
             gender: 'gender',
+            graid: 'graid',
+            grclid: 'grclid',
             im_ref: 'im_ref',
             ip: 'ip',
             irclickid: 'irclickid',
-            is_bot: 'is_bot',
+            is_bot: 'string',
             job_title: 'job_title',
             last_name: 'last_name',
             li_fat_id: 'li_fat_id',
@@ -153,7 +157,7 @@ describe('resource batch', () => {
             ndclid: 'ndclid',
             ob_click_id: 'ob_click_id',
             oppref: 'oppref',
-            phone_number: 'phone_number',
+            phone_number: 'string',
             qclid: 'qclid',
             rdt_cid: 'rdt_cid',
             referrer: 'referrer',
@@ -175,7 +179,7 @@ describe('resource batch', () => {
             viant_click_id: 'viant_click_id',
             viant_impression_id: 'viant_impression_id',
             wbraid: 'wbraid',
-            zip: 'zip',
+            zip: 'string',
           },
         },
       ],
