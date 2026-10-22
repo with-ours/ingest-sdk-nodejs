@@ -569,6 +569,13 @@ export namespace TrackEventParams {
     ttclid?: string | null;
 
     /**
+     * The Trade Desk impression ID, captured from a configured ttd_impression_id URL
+     * parameter using the %%TTD_IMPRESSIONID%% creative macro. Sent as imp on
+     * conversions. Leading and trailing whitespace is removed before validation.
+     */
+    ttd_impression_id?: string | null;
+
+    /**
      * The Twitter Click ID. Ex: twclid123 Leading and trailing whitespace is removed
      * before validation.
      */
@@ -653,6 +660,11 @@ export namespace TrackEventParams {
      * Whether the user is in a webview. Ex: true
      */
     webview?: boolean | null;
+
+    /**
+     * The Yelp Click ID from the landing URL, sent unchanged and unhashed.
+     */
+    ylpcid?: string | null;
   }
 
   /**
@@ -976,6 +988,11 @@ export namespace TrackEventParams {
 
     ttclid?: string | null;
 
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
+    ttd_impression_id?: string | null;
+
     twclid?: string | null;
 
     user_agent?: string | null;
@@ -1029,6 +1046,8 @@ export namespace TrackEventParams {
     viant_impression_id?: string | null;
 
     wbraid?: string | null;
+
+    ylpcid?: string | null;
 
     /**
      * Any JSON value: string, number, boolean, array, object, or null.
