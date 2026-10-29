@@ -204,12 +204,12 @@ export namespace BatchCreateParams {
       _ef_transaction_id?: string | null;
 
       /**
-       * The active time in milliseconds that the user had this tab active
+       * The total time in milliseconds this tab has been visible since the page loaded
        */
       activeDuration?: number | null;
 
       /**
-       * The ad id for detected in the session. This is set by the web sdk automatically.
+       * The ad id detected in the session. This is set by the web sdk automatically.
        * Leading and trailing whitespace is removed before validation.
        */
       ad_id?: string | null;
@@ -221,8 +221,8 @@ export namespace BatchCreateParams {
       admitad_uid?: string | null;
 
       /**
-       * The adset id for detected in the session. This is set by the web sdk
-       * automatically. Leading and trailing whitespace is removed before validation.
+       * The adset id detected in the session. This is set by the web sdk automatically.
+       * Leading and trailing whitespace is removed before validation.
        */
       adset_id?: string | null;
 
@@ -258,8 +258,8 @@ export namespace BatchCreateParams {
       beeswax_auction_id?: string | null;
 
       /**
-       * The language of the browser. Ex: en-US Leading and trailing whitespace is
-       * removed before validation.
+       * The language of the browser, lowercased. Ex: en-us Leading and trailing
+       * whitespace is removed before validation.
        */
       browser_language?: string | null;
 
@@ -276,7 +276,7 @@ export namespace BatchCreateParams {
       browser_version?: string | null;
 
       /**
-       * The campaign id for detected in the session. This is set by the web sdk
+       * The campaign id detected in the session. This is set by the web sdk
        * automatically. Leading and trailing whitespace is removed before validation.
        */
       campaign_id?: string | null;
@@ -294,8 +294,8 @@ export namespace BatchCreateParams {
       clid?: string | null;
 
       /**
-       * The architecture of the CPU. Ex: x64 Leading and trailing whitespace is removed
-       * before validation.
+       * The architecture of the CPU. Ex: amd64 Leading and trailing whitespace is
+       * removed before validation.
        */
       cpu_architecture?: string | null;
 
@@ -312,8 +312,8 @@ export namespace BatchCreateParams {
       dclid?: string | null;
 
       /**
-       * The model of the device. Ex: iPhone 13 Leading and trailing whitespace is
-       * removed before validation.
+       * The model of the device. Ex: iPhone Leading and trailing whitespace is removed
+       * before validation.
        */
       device_model?: string | null;
 
@@ -330,12 +330,14 @@ export namespace BatchCreateParams {
       device_vendor?: string | null;
 
       /**
-       * The time in milliseconds since the page was loaded // script was loaded
+       * The time in milliseconds since the previous event on this page, or since the web
+       * SDK loaded for the first event. Restarts when a hidden tab becomes visible
+       * again.
        */
       duration?: number | null;
 
       /**
-       * The browsers encoding. Ex: UTF-8 Leading and trailing whitespace is removed
+       * The browser's encoding. Ex: UTF-8 Leading and trailing whitespace is removed
        * before validation.
        */
       encoding?: string | null;
@@ -525,7 +527,7 @@ export namespace BatchCreateParams {
       rdt_cid?: string | null;
 
       /**
-       * The time the event was received by an Ours server in ISO format
+       * The time an Ours server received the event, in ISO 8601 UTC
        */
       received_at?: string | null;
 
@@ -548,7 +550,7 @@ export namespace BatchCreateParams {
       sacid?: string | null;
 
       /**
-       * The SnapChat Click ID. Ex: sccid123 Leading and trailing whitespace is removed
+       * The Snapchat Click ID. Ex: sccid123 Leading and trailing whitespace is removed
        * before validation.
        */
       sccid?: string | null;
@@ -575,7 +577,8 @@ export namespace BatchCreateParams {
       sid?: string | null;
 
       /**
-       * Leading and trailing whitespace is removed before validation.
+       * The screen resolution as width x height in pixels. Ex: 1920x1080 Leading and
+       * trailing whitespace is removed before validation.
        */
       sr?: string | null;
 
@@ -605,7 +608,8 @@ export namespace BatchCreateParams {
       twclid?: string | null;
 
       /**
-       * User agent as a full list of strings. Leading and trailing whitespace is removed
+       * The browser brands and full versions from User-Agent Client Hints, as
+       * brand;version pairs separated by |. Leading and trailing whitespace is removed
        * before validation.
        */
       uafvl?: string | null;
