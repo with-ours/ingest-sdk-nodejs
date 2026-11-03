@@ -4,6 +4,7 @@
   "exclude": [],
   "compilerOptions": {
     "rootDir": "./dist/src",
+    "types": ["node"],
     "paths": {
       "@oursprivacy/server-sdk/*": ["./dist/src/*"],
       "@oursprivacy/server-sdk": ["./dist/src/index.ts"]
