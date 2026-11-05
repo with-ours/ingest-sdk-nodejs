@@ -110,6 +110,8 @@ export namespace VisitorUpsertParams {
 
     adset_id?: string | null;
 
+    affiliatly_v3?: string | null;
+
     alart?: string | null;
 
     aleid?: string | null;
@@ -496,6 +498,14 @@ export namespace VisitorUpsertParams {
      * Leading and trailing whitespace is removed before validation.
      */
     adset_id?: string | null;
+
+    /**
+     * The raw Affiliatly tracking cookie value (affiliatly_v3), set by the Affiliatly
+     * script when a visitor lands from an affiliate link. Web-only. Ex:
+     * id_hash=abc&id_user=123&aff_uid=45 Leading and trailing whitespace is removed
+     * before validation.
+     */
+    affiliatly_v3?: string | null;
 
     /**
      * The AppLovin alart query parameter. Ex: alart123 Leading and trailing whitespace
