@@ -4,6 +4,10 @@
 
 This library provides convenient access to the Ours Privacy REST API from server-side TypeScript or JavaScript.
 
+`token` is the Source token from your Ours Privacy dashboard. Events must be allow-listed: an event that isn't on your [Event Allowlist](https://docs.oursprivacy.com/docs/allow-listing-events) isn't forwarded to your destinations.
+
+See the [SDK guide](https://docs.oursprivacy.com/docs/nodejs) and the runnable code in [`examples`](examples).
+
 The REST API documentation can be found on [docs.oursprivacy.com](https://docs.oursprivacy.com). The full API of this library can be found in [api.md](api.md).
 
 ## Installation
@@ -22,10 +26,94 @@ import OursPrivacy from '@oursprivacy/server-sdk';
 
 const client = new OursPrivacy();
 
-const response = await client.track.event({ token: 'REPLACE_ME', event: 'REPLACE_ME' });
+const response = await client.track.event({
+  token: 'YOUR_SOURCE_TOKEN',
+  event: 'signup_completed',
+  distinctId: 'evt_01J9ZK3Q7X',
+  eventProperties: {
+    plan: 'pro',
+    value: 49,
+    currency: 'USD',
+  },
+  externalId: 'crm_contact_1042',
+  identityContext: { ip: '203.0.113.10', userAgent: 'Mozilla/5.0' },
+});
 
 console.log(response.success);
 ```
+
+### Identify a visitor
+
+Set properties on a visitor, creating the visitor if there's no match.
+
+```ts
+import OursPrivacy from '@oursprivacy/server-sdk';
+
+const client = new OursPrivacy();
+
+const response = await client.visitor.upsert({
+  token: 'YOUR_SOURCE_TOKEN',
+  userProperties: { first_name: 'Sample', last_name: 'User' },
+  email: 'user@example.com',
+});
+
+console.log(response.success);
+```
+
+### Send a batch of events
+
+Send many events in one request, each with its own required `distinctId`.
+
+```ts
+import OursPrivacy from '@oursprivacy/server-sdk';
+
+const client = new OursPrivacy();
+
+const batch = await client.batch.create({
+  token: 'YOUR_SOURCE_TOKEN',
+  events: [
+    {
+      event: 'signup_completed',
+      distinctId: 'evt_01J9ZK3Q7X',
+      externalId: 'crm_contact_1042',
+    },
+    {
+      event: 'plan_upgraded',
+      distinctId: 'evt_01J9ZK3Q8Y',
+      externalId: 'crm_contact_1042',
+    },
+  ],
+});
+
+console.log(batch.accepted);
+```
+
+A partial success returns HTTP 207 with a result for each row. Retry only the rows whose `code` is `queue_failed`, with the same `distinctId`. You can backfill events up to one year old; older `time` values are clamped.
+
+### Get an experiment assignment
+
+Look up a visitor's variant, using the experiment's `exp_*` token rather than the Source token.
+
+```ts
+import OursPrivacy from '@oursprivacy/server-sdk';
+
+const client = new OursPrivacy();
+
+const response = await client.experiments.assignment('checkout_redesign', {
+  token: 'exp_YOUR_EXPERIMENT_TOKEN',
+  visitor_id: 'visitor_1042',
+});
+```
+
+### Further reading
+
+The docs cover each endpoint in full.
+
+- [Track](https://docs.oursprivacy.com/docs/reference/track)
+- [Identify](https://docs.oursprivacy.com/docs/reference/identify)
+- [Batch](https://docs.oursprivacy.com/docs/reference/batch)
+- [Rate limits](https://docs.oursprivacy.com/docs/reference/rate-limits)
+- [Server-side experimentation](https://docs.oursprivacy.com/docs/experimentation/server-side)
 
 ### Request & Response types
 
@@ -133,11 +221,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new OursPrivacy();
 
-const response = await client.track
+const rawResponse = await client.track
   .event({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
   .asResponse();
-console.log(response.headers.get('X-My-Header'));
-console.log(response.statusText); // access the underlying Response object
+console.log(rawResponse.headers.get('X-My-Header'));
+console.log(rawResponse.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client.track
   .event({ token: 'REPLACE_ME', event: 'REPLACE_ME' })
@@ -176,8 +264,8 @@ Available log levels, from most to least verbose:
 - `'off'` - Disable all logging
 
 At the `'debug'` level, all HTTP requests and responses are logged, including headers and bodies.
-Some authentication-related headers are redacted, but sensitive data in request and response bodies
-may still be visible.
+Authentication-related headers and known secret fields in JSON bodies are redacted, but other sensitive
+data in request and response bodies may still be visible.
 
 #### Custom logger
 
@@ -320,8 +408,6 @@ const client = new OursPrivacy({
   },
 });
 ```
-
-## Frequently Asked Questions
 
 ## Semantic versioning
 

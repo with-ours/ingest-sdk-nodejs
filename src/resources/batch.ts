@@ -169,8 +169,9 @@ export namespace BatchCreateParams {
     identityContext?: Event.IdentityContext | null;
 
     /**
-     * The time at which the event occurred in milliseconds since UTC epoch. The time
-     * must be in the past and within the last 7 days.
+     * The time at which the event occurred in milliseconds since UTC epoch. Times
+     * older than one year are recorded as exactly one year ago, and future times as
+     * now.
      */
     time?: number | null;
 
@@ -225,6 +226,14 @@ export namespace BatchCreateParams {
        * Leading and trailing whitespace is removed before validation.
        */
       adset_id?: string | null;
+
+      /**
+       * The raw Affiliatly tracking cookie value (affiliatly_v3), set by the Affiliatly
+       * script when a visitor lands from an affiliate link. Web-only. Ex:
+       * id_hash=abc&id_user=123&aff_uid=45 Leading and trailing whitespace is removed
+       * before validation.
+       */
+      affiliatly_v3?: string | null;
 
       /**
        * The AppLovin alart query parameter. Ex: alart123 Leading and trailing whitespace
@@ -729,6 +738,8 @@ export namespace BatchCreateParams {
       admitad_uid?: string | null;
 
       adset_id?: string | null;
+
+      affiliatly_v3?: string | null;
 
       alart?: string | null;
 
