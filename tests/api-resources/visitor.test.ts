@@ -5,8 +5,7 @@ import OursPrivacy from '@oursprivacy/server-sdk';
 const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource visitor', () => {
-  // Mock server tests are disabled
-  test.skip('upsert: only required params', async () => {
+  test('upsert: only required params', async () => {
     const responsePromise = client.visitor.upsert({
       token: 'P',
       userProperties: {},
@@ -20,8 +19,7 @@ describe('resource visitor', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Mock server tests are disabled
-  test.skip('upsert: required and optional params', async () => {
+  test('upsert: required and optional params', async () => {
     const response = await client.visitor.upsert({
       token: 'P',
       userProperties: {
@@ -29,6 +27,7 @@ describe('resource visitor', () => {
         ad_id: 'ad_id',
         admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
+        affiliatly_v3: 'affiliatly_v3',
         alart: 'alart',
         aleid: 'aleid',
         axwrt: 'axwrt',
@@ -100,6 +99,7 @@ describe('resource visitor', () => {
         ad_id: 'ad_id',
         admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
+        affiliatly_v3: 'affiliatly_v3',
         alart: 'alart',
         aleid: 'aleid',
         axwrt: 'axwrt',
