@@ -5,8 +5,7 @@ import OursPrivacy from '@oursprivacy/server-sdk';
 const client = new OursPrivacy({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource batch', () => {
-  // Mock server tests are disabled
-  test.skip('create: only required params', async () => {
+  test('create: only required params', async () => {
     const responsePromise = client.batch.create({ token: 'P', events: [{ distinctId: 'P', event: 'P' }] });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -17,8 +16,7 @@ describe('resource batch', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Mock server tests are disabled
-  test.skip('create: required and optional params', async () => {
+  test('create: required and optional params', async () => {
     const response = await client.batch.create({
       token: 'P',
       events: [
@@ -31,6 +29,7 @@ describe('resource batch', () => {
             ad_id: 'ad_id',
             admitad_uid: 'admitad_uid',
             adset_id: 'adset_id',
+            affiliatly_v3: 'affiliatly_v3',
             alart: 'alart',
             aleid: 'aleid',
             axwrt: 'axwrt',
@@ -120,6 +119,7 @@ describe('resource batch', () => {
             ad_id: 'ad_id',
             admitad_uid: 'admitad_uid',
             adset_id: 'adset_id',
+            affiliatly_v3: 'affiliatly_v3',
             alart: 'alart',
             aleid: 'aleid',
             axwrt: 'axwrt',
