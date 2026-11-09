@@ -185,6 +185,7 @@ describe('resource batch', () => {
             ylpcid: 'ylpcid',
             zip: 'string',
           },
+          visitorId: 'P',
         },
       ],
     });

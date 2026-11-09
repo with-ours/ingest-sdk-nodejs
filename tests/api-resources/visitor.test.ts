@@ -182,6 +182,7 @@ describe('resource visitor', () => {
       externalId: 'P',
       identityContext: { ip: 'ip', userAgent: 'userAgent' },
       userId: 'P',
+      visitorId: 'P',
     });
   });
 });
