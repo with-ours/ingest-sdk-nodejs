@@ -183,6 +183,7 @@ describe('resource track', () => {
         ylpcid: 'ylpcid',
         zip: 'string',
       },
+      visitorId: 'P',
     });
   });
 });
