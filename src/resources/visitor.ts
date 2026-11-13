@@ -117,6 +117,11 @@ export namespace VisitorUpsertParams {
     /**
      * Leading and trailing whitespace is removed before validation.
      */
+    adct?: string | null;
+
+    /**
+     * Leading and trailing whitespace is removed before validation.
+     */
     admitad_uid?: string | null;
 
     adset_id?: string | null;
@@ -497,6 +502,12 @@ export namespace VisitorUpsertParams {
      * Leading and trailing whitespace is removed before validation.
      */
     ad_id?: string | null;
+
+    /**
+     * The AdRoll Click ID (adct) from the landing URL. Ex: adct123 Leading and
+     * trailing whitespace is removed before validation.
+     */
+    adct?: string | null;
 
     /**
      * The Admitad (Mitgo) affiliate Click ID. Ex: admitad_uid_abc123 Leading and
