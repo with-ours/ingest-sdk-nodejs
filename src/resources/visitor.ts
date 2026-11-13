@@ -73,9 +73,7 @@ export interface VisitorUpsertParams {
   externalId?: string | null;
 
   /**
-   * End-user network context for server-side calls. Required for probabilistic
-   * identity resolution when the caller is a backend server rather than an end-user
-   * browser.
+   * @deprecated Deprecated and ignored. Accepted so existing clients keep working.
    */
   identityContext?: VisitorUpsertParams.IdentityContext | null;
 
@@ -998,9 +996,7 @@ export namespace VisitorUpsertParams {
   }
 
   /**
-   * End-user network context for server-side calls. Required for probabilistic
-   * identity resolution when the caller is a backend server rather than an end-user
-   * browser.
+   * @deprecated Deprecated and ignored. Accepted so existing clients keep working.
    */
   export interface IdentityContext {
     /**
