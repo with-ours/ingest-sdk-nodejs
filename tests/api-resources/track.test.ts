@@ -24,6 +24,7 @@ describe('resource track', () => {
         _ef_transaction_id: '_ef_transaction_id',
         activeDuration: 0,
         ad_id: 'ad_id',
+        adct: 'adct',
         admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
         affiliatly_v3: 'affiliatly_v3',
@@ -115,6 +116,7 @@ describe('resource track', () => {
       userProperties: {
         _ef_transaction_id: '_ef_transaction_id',
         ad_id: 'ad_id',
+        adct: 'adct',
         admitad_uid: 'admitad_uid',
         adset_id: 'adset_id',
         affiliatly_v3: 'affiliatly_v3',
