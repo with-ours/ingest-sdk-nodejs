@@ -139,9 +139,7 @@ export interface TrackEventParams {
   externalId?: string | null;
 
   /**
-   * End-user network context for server-side calls. Required for probabilistic
-   * identity resolution when the caller is a backend server rather than an end-user
-   * browser.
+   * @deprecated Deprecated and ignored. Accepted so existing clients keep working.
    */
   identityContext?: TrackEventParams.IdentityContext | null;
 
@@ -698,9 +696,7 @@ export namespace TrackEventParams {
   }
 
   /**
-   * End-user network context for server-side calls. Required for probabilistic
-   * identity resolution when the caller is a backend server rather than an end-user
-   * browser.
+   * @deprecated Deprecated and ignored. Accepted so existing clients keep working.
    */
   export interface IdentityContext {
     /**
