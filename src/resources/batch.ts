@@ -225,6 +225,38 @@ export namespace BatchCreateParams {
       ad_id?: string | null;
 
       /**
+       * The platform ad id resolved by the Ours server for this event. Ex: 120212
+       * Leading and trailing whitespace is removed before validation.
+       */
+      ad_touch_ad_id?: string | null;
+
+      /**
+       * The platform ad set or ad group id resolved by the Ours server for this event.
+       * Ex: 120211 Leading and trailing whitespace is removed before validation.
+       */
+      ad_touch_adset_id?: string | null;
+
+      /**
+       * The platform campaign id resolved by the Ours server for this event. Ex: 120210
+       * Leading and trailing whitespace is removed before validation.
+       */
+      ad_touch_campaign_id?: string | null;
+
+      /**
+       * The ad platform resolved by the Ours server from the ad tag, ad ids, and click
+       * ids on this event. Ex: meta, google Leading and trailing whitespace is removed
+       * before validation.
+       */
+      ad_touch_platform?: string | null;
+
+      /**
+       * Which signal the Ours server used to resolve the ad touch: ours_ad, url_ids,
+       * gad_campaignid, utm_id, or click_id. Leading and trailing whitespace is removed
+       * before validation.
+       */
+      ad_touch_source?: string | null;
+
+      /**
        * The AdRoll Click ID (adct) from the landing URL. Ex: adct123 Leading and
        * trailing whitespace is removed before validation.
        */
@@ -411,6 +443,12 @@ export namespace BatchCreateParams {
       fv?: boolean | null;
 
       /**
+       * The Google Ads campaign id that Google auto-tagging appends to ad clicks. Ex:
+       * 21780011223 Leading and trailing whitespace is removed before validation.
+       */
+      gad_campaignid?: string | null;
+
+      /**
        * The Google Ad Source. Ex: google Leading and trailing whitespace is removed
        * before validation.
        */
@@ -526,6 +564,13 @@ export namespace BatchCreateParams {
        * removed before validation.
        */
       os_version?: string | null;
+
+      /**
+       * The Ours ad tag from the ours_ad query parameter, as platform.campaign.adset.ad.
+       * Ex: meta.120210.120211.120212 Leading and trailing whitespace is removed before
+       * validation.
+       */
+      ours_ad?: string | null;
 
       /**
        * A random set of numbers for the page load
@@ -655,6 +700,12 @@ export namespace BatchCreateParams {
        * Leading and trailing whitespace is removed before validation.
        */
       utm_content?: string | null;
+
+      /**
+       * The UTM ID. The web SDK automatically captures this from the query params.
+       * Leading and trailing whitespace is removed before validation.
+       */
+      utm_id?: string | null;
 
       /**
        * The UTM Medium. The web SDK automatically captures this from the query params.
